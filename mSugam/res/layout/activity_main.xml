@@ -1,0 +1,105 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="us.jaaga.msugam.MainActivity$PlaceholderFragment"
+    android:showDividers="middle"
+    android:layout_gravity="center_horizontal"
+     >
+    
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         >
+	
+		<Spinner 
+		    android:id="@+id/SpinnerType"
+		    android:layout_height="wrap_content"
+		    android:layout_width="wrap_content"
+		    android:entries="@array/type_list"
+		    android:prompt="@string/type"
+		    />
+		
+		<Spinner
+		    android:id="@+id/SpinnerCategory"
+		    android:layout_height="wrap_content"
+		    android:layout_width="wrap_content"
+		    android:entries="@array/category_list"
+		    android:prompt="@string/category"
+		  />
+	
+	</LinearLayout>
+	
+		<EditText 
+		    android:id="@+id/OtherPartyTin"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="textCapCharacters"
+		    android:hint="@string/other_party_tin"
+		    />
+		
+		<EditText 
+		    android:id="@+id/InvoiceNo"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="textCapCharacters"
+		    android:hint="@string/invoice_number"
+		    />
+	
+		<EditText 
+		    android:id="@+id/TaxableVal"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="numberDecimal"
+		    android:hint="@string/taxable_value"
+		    
+		    />
+		
+		<EditText 
+		    android:id="@+id/VATVal"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="numberDecimal"
+		    android:hint="@string/VAT_value"
+		    />
+		<EditText 
+		    android:id="@+id/OtherVal"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="numberDecimal"
+		    android:hint="@string/other_value"
+		    />
+		
+		<EditText 
+		    android:id="@+id/CommCode"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="numberDecimal"
+		    android:hint="@string/commodity_code"
+		    />
+	
+		<EditText 
+		    android:id="@+id/Place"
+		    android:layout_height="wrap_content"
+		    android:layout_width="fill_parent"
+		    android:inputType="textCapCharacters"
+		    android:hint="@string/other_party_location"
+		    />
+		
+		<Button 
+		    android:id="@+id/submitButton"
+		    android:layout_height="wrap_content"
+		    android:layout_width="wrap_content"
+		    android:text="@string/submit_button" 
+		    android:layout_gravity="center"
+		    />
+	
+</LinearLayout>

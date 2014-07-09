@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">mSugam</string>
+    <string name="action_settings">Settings</string>
+    <string name="type">Choose Type of Transaction</string>
+    <string name="category">Choose Category of Transaction</string>
+    <string name="submit_button">Submit</string>
+    
+    <!-- Field Strings --> 
+    
+    <string name="other_party_tin">Other Party Tin</string>
+    <string name="invoice_number">Invoice No</string>
+    <string name="taxable_value">Taxable Value</string>
+    <string name="VAT_value">VAT Value</string>
+    <string name="other_value">Other Value</string>
+    <string name="commodity_code">Commodity Code</string>
+    <string name="other_party_location">Other Party Location</string>
+    
+    <string-array name="type_list">
+        <item>WS</item>
+        <item>IS</item>
+        <item>EX</item>
+        <item>IM</item>
+    </string-array>
+    
+    <string-array name="category_list">
+        <item>SAL</item>
+        <item>PUR</item>
+        <item>THP</item>
+        <item>SGS</item>
+        <item>JRL</item>
+        <item>CSD</item>
+        <item>CSR</item>
+        <item>STD</item>
+        <item>STR</item>
+        <item>OTH</item>
+    </string-array>
+    
+</resources>
