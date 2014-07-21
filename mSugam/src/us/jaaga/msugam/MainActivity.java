@@ -17,7 +17,7 @@ public class MainActivity extends Activity {
 	EditText mOtherPartyTin ,mInvoiceNo ,mTaxableVal ,mVATVal ,mOtherVal ,mCommCode ,mPlace;
 	Spinner mSpinnerType, mSpinnerCategory;
 	String fOtherPartyTin ,fInvoiceNo ,fTaxableVal ,fVATVal ,fOtherVal ,fCommCode ,fPlace;
-	String fSpinnerType ,fSpinnerCategory ,Message ,Number;
+	String fSpinnerType ,fSpinnerCategory ,Message ,Number,finalSpinnerType,finalSpinnerCategory;
 	Button mButton;
 	
     @Override
@@ -39,11 +39,80 @@ public class MainActivity extends Activity {
         
       //Getting data from Spinners
         fSpinnerType = mSpinnerType.getSelectedItem().toString();
+        
+      // Converting data from Spinner Type
+        switch(fSpinnerType){
+        
+        case "WS-Within State":
+        	finalSpinnerType = "WS";
+        	break;
+        case "IS-Interstate State":
+        	finalSpinnerType = "IS";
+        	break;
+        	
+        case "EX-Export":
+        	finalSpinnerType = "EX";
+        	break;
+        
+        case "IM-Import":
+        	finalSpinnerType = "IM";
+        	break;
+        
+        }
+        
+        //Getting selected item from Spinner Category
+        
         fSpinnerCategory = mSpinnerCategory.getSelectedItem().toString();
         
+        if(fSpinnerCategory=="THP-To His Principal"){
+        	
+        	finalSpinnerCategory = "THP";
+        	
+        }
+        /*
+        switch(fSpinnerCategory){
         
+        case "SAL-After Sale":
+        	finalSpinnerCategory = "SAL";
+        	break;
+        	
+        case "PUR-After Purchase":
+        	finalSpinnerCategory = "PUR";
+        	break;
+        	
+        case "THP-To His Principal":
+        	finalSpinnerCategory = "THP";
+        	break;
+        	
+        case "SGS-To Shop/Go down/Storage":
+        	finalSpinnerCategory = "SGS";
+        	break;
+        	
+        case "JRL-Job work/Return/Line Sales":
+        	finalSpinnerCategory = "JRL";
+        	break;
+        	
+        case "CSD-Cons. Sale(Despatch)":
+        	finalSpinnerCategory = "CSD";
+        	break;
         
+        case "CSR-Cons. Sale(Receipt)":
+        	finalSpinnerCategory = "CSR";
+        	break;
+        	
+        case "STD-Stock Transfer(Despatch)":
+        	finalSpinnerCategory = "STD";
+        	break;
         
+        case "STR-Stock Transfer(Receipt)":
+        	finalSpinnerCategory = "STR";
+        	break;
+        
+        case "OTH-Others":
+        	finalSpinnerCategory = "OTH";
+        	break;
+        }
+*/
         
         mButton = (Button) findViewById(R.id.submitButton);
         
@@ -53,20 +122,20 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				
 				//Getting data from Other fields
-				fOtherPartyTin = mOtherPartyTin.getText().toString();
-		        fInvoiceNo = mInvoiceNo.getText().toString();
-		        fTaxableVal = mTaxableVal.getText().toString();
-		        fVATVal = mVATVal.getText().toString();
-		        fOtherVal = mOtherVal.getText().toString();
-		        fCommCode = mCommCode.getText().toString();
-		        fPlace = mPlace.getText().toString();
+				fOtherPartyTin = mOtherPartyTin.getText().toString().trim();
+		        fInvoiceNo = mInvoiceNo.getText().toString().trim();
+		        fTaxableVal = mTaxableVal.getText().toString().trim();
+		        fVATVal = mVATVal.getText().toString().trim();
+		        fOtherVal = mOtherVal.getText().toString().trim();
+		        fCommCode = mCommCode.getText().toString().trim();
+		        fPlace = mPlace.getText().toString().trim();
 		        
-		        Message = "KSR " + fSpinnerType + " " + fSpinnerCategory + " " +
+		        Message = "KSR " + finalSpinnerType + " " + finalSpinnerCategory + " " +
 	        			fOtherPartyTin + " " + fInvoiceNo + " " + fTaxableVal + " " + 
 	        			fVATVal + " " + fOtherVal + " " + fCommCode + " " + " " + fPlace;
 	        
 	        
-		        Number = "09212357123"; 
+		        Number = "09663845414"; 
 
 				
 				SmsManager sms = SmsManager.getDefault();

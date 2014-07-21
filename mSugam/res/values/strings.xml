@@ -18,23 +18,23 @@
     <string name="other_party_location">Other Party Location</string>
     
     <string-array name="type_list">
-        <item>WS</item>
-        <item>IS</item>
-        <item>EX</item>
-        <item>IM</item>
+        <item>WS-Within State</item>
+        <item>IS-Interstate State</item>
+        <item>EX-Export</item>
+        <item>IM-Import</item>
     </string-array>
     
     <string-array name="category_list">
-        <item>SAL</item>
-        <item>PUR</item>
-        <item>THP</item>
-        <item>SGS</item>
-        <item>JRL</item>
-        <item>CSD</item>
-        <item>CSR</item>
-        <item>STD</item>
-        <item>STR</item>
-        <item>OTH</item>
+        <item>SAL-After Sale</item>
+        <item>PUR-After Purchase</item>
+        <item>THP-To His Principal</item>
+        <item>SGS-To Shop/Go down/Storage</item>
+        <item>JRL-Job work/Return/Line Sales</item>
+        <item>CSD-Cons. Sale(Despatch)</item>
+        <item>CSR-Cons. Sale(Receipt)</item>
+        <item>STD-Stock Transfer(Despatch)</item>
+        <item>STR-Stock Transfer(Receipt)</item>
+        <item>OTH-Others</item>
     </string-array>
     
 </resources>
