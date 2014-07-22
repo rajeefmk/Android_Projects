@@ -15,15 +15,15 @@
      >
     
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
          >
 	
 		<Spinner 
 		    android:id="@+id/SpinnerType"
 		    android:layout_height="wrap_content"
-		    android:layout_width="wrap_content"
+		    android:layout_width="fill_parent"
 		    android:entries="@array/type_list"
 		    android:prompt="@string/type"
 		    />
@@ -31,7 +31,7 @@
 		<Spinner
 		    android:id="@+id/SpinnerCategory"
 		    android:layout_height="wrap_content"
-		    android:layout_width="wrap_content"
+		    android:layout_width="fill_parent"
 		    android:entries="@array/category_list"
 		    android:prompt="@string/category"
 		  />

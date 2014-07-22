@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.telephony.SmsManager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -17,7 +20,7 @@ public class MainActivity extends Activity {
 	EditText mOtherPartyTin ,mInvoiceNo ,mTaxableVal ,mVATVal ,mOtherVal ,mCommCode ,mPlace;
 	Spinner mSpinnerType, mSpinnerCategory;
 	String fOtherPartyTin ,fInvoiceNo ,fTaxableVal ,fVATVal ,fOtherVal ,fCommCode ,fPlace;
-	String fSpinnerType ,fSpinnerCategory ,Message ,Number,finalSpinnerType,finalSpinnerCategory;
+	String Message ,Number, fsptype,fspcateg, finalSpinnerType, finalSpinnerCategory ;
 	Button mButton;
 	
     @Override
@@ -26,8 +29,8 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         
         //Layout Element Inflators
-        mSpinnerType = (Spinner) findViewById(R.id.SpinnerType);
-        mSpinnerCategory = (Spinner) findViewById(R.id.SpinnerCategory);
+        
+       
         
         mOtherPartyTin = (EditText) findViewById(R.id.OtherPartyTin);
         mInvoiceNo = (EditText) findViewById(R.id.InvoiceNo);
@@ -37,82 +40,71 @@ public class MainActivity extends Activity {
         mCommCode = (EditText) findViewById(R.id.CommCode);
         mPlace = (EditText) findViewById(R.id.Place);
         
-      //Getting data from Spinners
-        fSpinnerType = mSpinnerType.getSelectedItem().toString();
+      //Getting data from Spinner Type
         
-      // Converting data from Spinner Type
-        switch(fSpinnerType){
+           //Spinner layout being inflated
+	       mSpinnerType = (Spinner) findViewById(R.id.SpinnerType);
+	       
+	       //Adapter which supplies the data to the spinner is defined here.
+	       ArrayAdapter<CharSequence> adapterType = ArrayAdapter.createFromResource(this, R.array.type_list, 
+	    		   																android.R.layout.simple_spinner_item);
+	       
+	       adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	       
+	       //OnItemSelectedListener is implemented and actions based on selection is made
+	       mSpinnerType.setOnItemSelectedListener(new OnItemSelectedListener() {
+	
+				@Override
+				public void onItemSelected(AdapterView<?> parent, View view, int pos,
+						long id) {
+					
+					fsptype = parent.getItemAtPosition(pos).toString();
+					
+					String marray[] = fsptype.split("-");
+					
+					finalSpinnerType = marray[0];
+					
+					
+				}
+		
+				@Override
+				public void onNothingSelected(AdapterView<?> arg0) {
+					
+				}
+	    	   
+	    	   
+		  });
+	        
         
-        case "WS-Within State":
-        	finalSpinnerType = "WS";
-        	break;
-        case "IS-Interstate State":
-        	finalSpinnerType = "IS";
-        	break;
-        	
-        case "EX-Export":
-        	finalSpinnerType = "EX";
-        	break;
-        
-        case "IM-Import":
-        	finalSpinnerType = "IM";
-        	break;
-        
-        }
-        
-        //Getting selected item from Spinner Category
-        
-        fSpinnerCategory = mSpinnerCategory.getSelectedItem().toString();
-        
-        if(fSpinnerCategory=="THP-To His Principal"){
-        	
-        	finalSpinnerCategory = "THP";
-        	
-        }
-        /*
-        switch(fSpinnerCategory){
-        
-        case "SAL-After Sale":
-        	finalSpinnerCategory = "SAL";
-        	break;
-        	
-        case "PUR-After Purchase":
-        	finalSpinnerCategory = "PUR";
-        	break;
-        	
-        case "THP-To His Principal":
-        	finalSpinnerCategory = "THP";
-        	break;
-        	
-        case "SGS-To Shop/Go down/Storage":
-        	finalSpinnerCategory = "SGS";
-        	break;
-        	
-        case "JRL-Job work/Return/Line Sales":
-        	finalSpinnerCategory = "JRL";
-        	break;
-        	
-        case "CSD-Cons. Sale(Despatch)":
-        	finalSpinnerCategory = "CSD";
-        	break;
-        
-        case "CSR-Cons. Sale(Receipt)":
-        	finalSpinnerCategory = "CSR";
-        	break;
-        	
-        case "STD-Stock Transfer(Despatch)":
-        	finalSpinnerCategory = "STD";
-        	break;
-        
-        case "STR-Stock Transfer(Receipt)":
-        	finalSpinnerCategory = "STR";
-        	break;
-        
-        case "OTH-Others":
-        	finalSpinnerCategory = "OTH";
-        	break;
-        }
-*/
+       //Getting selected item from Spinner Category
+       
+	       mSpinnerCategory = (Spinner) findViewById(R.id.SpinnerCategory);
+	       
+	       ArrayAdapter<CharSequence> adapterCategory= ArrayAdapter.createFromResource(this, R.array.category_list,
+	    		   														android.R.layout.simple_spinner_item);
+       
+	       adapterCategory.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+	       
+	       mSpinnerCategory.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int pos, long arg3) {
+				
+				  fspcateg = parent.getSelectedItem().toString();
+			       
+			      String marray2[] = fspcateg.split("-");
+			       
+			      finalSpinnerCategory = marray2[0];
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+				
+			}
+	    	   
+	    	   
+		   });
         
         mButton = (Button) findViewById(R.id.submitButton);
         
@@ -169,5 +161,5 @@ public class MainActivity extends Activity {
 
 
     }
-    
+
 }
