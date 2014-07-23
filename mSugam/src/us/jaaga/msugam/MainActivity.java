@@ -30,8 +30,6 @@ public class MainActivity extends Activity {
         
         //Layout Element Inflators
         
-       
-        
         mOtherPartyTin = (EditText) findViewById(R.id.OtherPartyTin);
         mInvoiceNo = (EditText) findViewById(R.id.InvoiceNo);
         mTaxableVal = (EditText) findViewById(R.id.TaxableVal);
@@ -71,11 +69,8 @@ public class MainActivity extends Activity {
 				public void onNothingSelected(AdapterView<?> arg0) {
 					
 				}
-	    	   
-	    	   
 		  });
 	        
-        
        //Getting selected item from Spinner Category
        
 	       mSpinnerCategory = (Spinner) findViewById(R.id.SpinnerCategory);
@@ -102,8 +97,6 @@ public class MainActivity extends Activity {
 			public void onNothingSelected(AdapterView<?> arg0) {
 				
 			}
-	    	   
-	    	   
 		   });
         
         mButton = (Button) findViewById(R.id.submitButton);
@@ -127,7 +120,7 @@ public class MainActivity extends Activity {
 	        			fVATVal + " " + fOtherVal + " " + fCommCode + " " + " " + fPlace;
 	        
 	        
-		        Number = "09663845414"; 
+		        Number = "09212357123"; 
 
 				
 				SmsManager sms = SmsManager.getDefault();
@@ -141,11 +134,6 @@ public class MainActivity extends Activity {
 		});
     }
     
-    
-    
-    
-    
-    
     @Override
     public void onBackPressed() {
         new AlertDialog.Builder(this)
@@ -158,8 +146,6 @@ public class MainActivity extends Activity {
                 })
                 .setNegativeButton("No", null)
                 .show();
-
-
     }
 
 }

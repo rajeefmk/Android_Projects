@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -12,6 +12,7 @@
     tools:context="us.jaaga.msugam.MainActivity$PlaceholderFragment"
     android:showDividers="middle"
     android:layout_gravity="center_horizontal"
+    android:background="@drawable/bit"
      >
     
     <LinearLayout
@@ -38,12 +39,18 @@
 	
 	</LinearLayout>
 	
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
 		<EditText 
 		    android:id="@+id/OtherPartyTin"
 		    android:layout_height="wrap_content"
 		    android:layout_width="match_parent"
 		    android:inputType="textCapCharacters"
 		    android:hint="@string/other_party_tin"
+		    android:textColorHint="#000000"
 		    />
 		
 		<EditText 
@@ -52,39 +59,63 @@
 		    android:layout_width="match_parent"
 		    android:inputType="textCapCharacters"
 		    android:hint="@string/invoice_number"
+		    android:textColorHint="#000000"
 		    />
+		</LinearLayout>
+		
+		<LinearLayout 
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		    >
 	
-		<EditText 
-		    android:id="@+id/TaxableVal"
-		    android:layout_height="wrap_content"
-		    android:layout_width="match_parent"
-		    android:inputType="numberDecimal"
-		    android:hint="@string/taxable_value"
-		    
-		    />
+			<EditText 
+			    android:id="@+id/TaxableVal"
+			    android:layout_height="wrap_content"
+			    android:layout_width="wrap_content"
+			    android:inputType="numberDecimal"
+			    android:hint="@string/taxable_value"
+			    android:textColorHint="#000000"
+			    
+			    />
+			
+			<EditText 
+			    android:id="@+id/VATVal"
+			    android:layout_height="wrap_content"
+			    android:layout_width="match_parent"
+			    android:inputType="numberDecimal"
+			    android:hint="@string/VAT_value"
+			    android:textColorHint="#000000"
+			    
+			    />
 		
-		<EditText 
-		    android:id="@+id/VATVal"
-		    android:layout_height="wrap_content"
-		    android:layout_width="match_parent"
-		    android:inputType="numberDecimal"
-		    android:hint="@string/VAT_value"
-		    />
-		<EditText 
-		    android:id="@+id/OtherVal"
-		    android:layout_height="wrap_content"
-		    android:layout_width="match_parent"
-		    android:inputType="numberDecimal"
-		    android:hint="@string/other_value"
-		    />
+		</LinearLayout>
 		
-		<EditText 
-		    android:id="@+id/CommCode"
-		    android:layout_height="wrap_content"
+		<LinearLayout
 		    android:layout_width="match_parent"
-		    android:inputType="numberDecimal"
-		    android:hint="@string/commodity_code"
-		    />
+		    android:layout_height="wrap_content"
+		    android:orientation="horizontal"
+		     >
+	
+			<EditText 
+			    android:id="@+id/OtherVal"
+			    android:layout_height="wrap_content"
+			    android:layout_width="wrap_content"
+			    android:inputType="numberDecimal"
+			    android:hint="@string/other_value"
+			    android:textColorHint="#000000"
+			    />
+			
+			<EditText 
+			    android:id="@+id/CommCode"
+			    android:layout_height="wrap_content"
+			    android:layout_width="match_parent"
+			    android:inputType="numberDecimal"
+			    android:hint="@string/commodity_code"
+			    android:textColorHint="#000000"
+			    />
+		
+		</LinearLayout>
 	
 		<EditText 
 		    android:id="@+id/Place"
@@ -92,14 +123,18 @@
 		    android:layout_width="fill_parent"
 		    android:inputType="textCapCharacters"
 		    android:hint="@string/other_party_location"
+		    android:textColorHint="#000000"
 		    />
 		
 		<Button 
 		    android:id="@+id/submitButton"
 		    android:layout_height="wrap_content"
-		    android:layout_width="wrap_content"
+		    android:layout_width="fill_parent"
 		    android:text="@string/submit_button" 
-		    android:layout_gravity="center"
+		    android:layout_gravity="bottom"
+		    style="@style/DefaultButtonText"
+            android:background="@drawable/button_default_bg"
+            android:textColor="#000000"
 		    />
 	
 </LinearLayout>

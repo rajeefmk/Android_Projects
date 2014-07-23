@@ -236,8 +236,12 @@ int drawable abc_textfield_searchview_holo_dark 0x7f020053
 int drawable abc_textfield_searchview_holo_light 0x7f020054
 int drawable abc_textfield_searchview_right_holo_dark 0x7f020055
 int drawable abc_textfield_searchview_right_holo_light 0x7f020056
-int drawable empty_tall_divider 0x7f020057
-int drawable ic_launcher 0x7f020058
+int drawable bit 0x7f020057
+int drawable button_default_bg 0x7f020058
+int drawable congruent_outline 0x7f020059
+int drawable congruent_pentagon 0x7f02005a
+int drawable empty_tall_divider 0x7f02005b
+int drawable ic_launcher 0x7f02005c
 int id CommCode 0x7f050044
 int id InvoiceNo 0x7f050040
 int id LinearLayout1 0x7f05003c
@@ -363,8 +367,9 @@ int string other_value 0x7f0a0016
 int string submit_button 0x7f0a0011
 int string taxable_value 0x7f0a0014
 int string type 0x7f0a000f
-int style AppBaseTheme 0x7f0b008b
-int style AppTheme 0x7f0b008c
+int style AppBaseTheme 0x7f0b008c
+int style AppTheme 0x7f0b008d
+int style DefaultButtonText 0x7f0b008b
 int style TextAppearance_AppCompat_Base_CompactMenu_Dialog 0x7f0b0063
 int style TextAppearance_AppCompat_Base_SearchResult 0x7f0b006d
 int style TextAppearance_AppCompat_Base_SearchResult_Subtitle 0x7f0b006f
