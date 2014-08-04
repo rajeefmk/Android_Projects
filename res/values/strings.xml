@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Demo Vote</string>
+    <string name="urlButton">Submit</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_string">Login</string>
+    <string name="login_activity">Login Activity</string>
+
+</resources>
