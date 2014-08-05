@@ -55,7 +55,11 @@ public class LoginActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				
-				getUsername();
+				Intent mIntent = new Intent(LoginActivity.this,StudentList.class);
+				
+				startActivity(mIntent);
+				
+				/*getUsername();*/
 				Log.i(TAG,"getUsername is called");
 			}
 		});

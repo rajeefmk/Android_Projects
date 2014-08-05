@@ -5,7 +5,7 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
     
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
@@ -23,21 +23,27 @@
         	android:value="@integer/google_play_services_version" 
             />
         <activity
-            android:name=".MainActivity"
-            android:label="@string/app_name" >
-            
+            android:name=".LoginActivity"
+            android:label="string/login_activity">
         </activity>
         
         <activity
-            android:name=".LoginActivity"
-            android:label="string/login_activity">
+            android:name=".ProjectList"
+            android:label="Project List">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            
         </activity>
+         <activity
+            android:name=".UpcomingProject"
+            android:label="string/upcoming_project">
+        </activity>
+        <activity
+            android:name=".PastProject"
+            android:label="string/past_project">
+        </activity>
+    	
     </application>
 
 </manifest>
