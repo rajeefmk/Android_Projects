@@ -25,15 +25,15 @@
         <activity
             android:name=".LoginActivity"
             android:label="string/login_activity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         
         <activity
             android:name=".ProjectList"
             android:label="Project List">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
          <activity
             android:name=".UpcomingProject"
