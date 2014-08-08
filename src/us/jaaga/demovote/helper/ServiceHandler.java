@@ -20,7 +20,7 @@ public class ServiceHandler {
 	static int tokenResponseCode;
 	public final static int GET = 1;
 	public final static int POST = 2;
-	static String REQUEST_CODE_401;
+	//static String REQUEST_CODE_401;
 	static String REQUEST_CODE_403;
 
 	public ServiceHandler() {
@@ -42,7 +42,7 @@ public class ServiceHandler {
 	
 	//Service call for authetication
 	
-	public String tokenAuthenticate(String token, String url, int method){
+	public String tokenAuthenticate(String token, String url){
 		
 		try{
 			
@@ -65,9 +65,9 @@ public class ServiceHandler {
 				tokenResponse = EntityUtils.toString(mHttpEntity);
 				
 			}
-			else if(tokenResponseCode == 401){
+			else if(tokenResponseCode == 403){
 				
-				tokenResponse = REQUEST_CODE_401;
+				tokenResponse = REQUEST_CODE_403;
 				
 			}/*else if(tokenResponseCode == 403){
 				

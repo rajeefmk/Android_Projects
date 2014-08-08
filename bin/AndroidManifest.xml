@@ -25,6 +25,12 @@
         <activity
             android:name=".LoginActivity"
             android:label="string/login_activity">
+            
+        </activity>
+        
+        <activity
+            android:name=".StudentListActivity"
+            android:label="Students List" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -33,16 +39,15 @@
         
         <activity
             android:name=".ProjectList"
-            android:label="Project List">
-        </activity>
+            android:label="Project List" />
+        
          <activity
             android:name=".UpcomingProject"
-            android:label="string/upcoming_project">
-        </activity>
+            android:label="string/upcoming_project" />
+        
         <activity
             android:name=".PastProject"
-            android:label="string/past_project">
-        </activity>
+            android:label="string/past_project" />
     	
     </application>
 

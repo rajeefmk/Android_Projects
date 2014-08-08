@@ -22,8 +22,8 @@ public class AsyncToken extends AsyncTask<Void, Void, String>{
 	//url for sending token to th backend for verification
 	private static final String url = "http://192.168.0.6:3000/api/android/authorize";
 	static final int REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR = 1001;
-	//static String REQUEST_CODE_403;
-	static String REQUEST_CODE_401;
+	static String REQUEST_CODE_403;
+	//static String REQUEST_CODE_401;
 	static String sendbackToken;
 	int count = 0;
 	
@@ -55,9 +55,9 @@ public class AsyncToken extends AsyncTask<Void, Void, String>{
 					
 					ServiceHandler sh = new ServiceHandler();
 					
-					String response = sh.tokenAuthenticate(mToken, url, ServiceHandler.GET);
+					String response = sh.tokenAuthenticate(mToken, url);
 					
-					if(response == REQUEST_CODE_401 ){
+					if(response == REQUEST_CODE_403 ){
 							
 						invalidate();
 						sendbackToken = "";
