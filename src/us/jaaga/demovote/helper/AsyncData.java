@@ -11,6 +11,7 @@ import us.jaaga.demovote.models.ProjectListData;
 import us.jaaga.demovote.models.StudentListData;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>{
 	
@@ -20,14 +21,17 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 	ArrayList<ProjectListData> delivData = new ArrayList<ProjectListData>();
 	String mToken;
 	
+	private static final String TAG = "AsyncData";
+	
 	public AsyncData(StudentListActivity activity, String token){
 		
 		mStudentList = activity;
+		Log.i(TAG, "activity recieved from StudentListActivity and set to mStudentList");
+		
 		mToken = token;
+		Log.i(TAG, "token received and set to mToken");
 	}
 	
-	
-
 	private static String url = "https://jaagademovote.herokuapp.com/api/v1/family?populate=deliverables";
 	
 	// JSON Node names for Main Data
@@ -41,9 +45,9 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 	private static final String TAG_DELIVERABLES = "deliverables";
 	
 	//JSON Node names for Deliverables Data
-	private static final String TAG_DELIVERABLES_ID = "_id";	
-	private static final String TAG_DELIVERABLES_TITLE = "title";
-	private static final String TAG_DELIVERED_STATUS = "delivered";
+	//private static final String TAG_DELIVERABLES_ID = "_id";	
+	//private static final String TAG_DELIVERABLES_TITLE = "title";
+	//private static final String TAG_DELIVERED_STATUS = "delivered";
 	//private static final String TAG_VOTINGOPEN = "votingopen";
 	//private static final String TAG_DELIVERABLES_DESCRIPTION = "description";
 	//private static final String TAG_TOTAL_VOTES = "votes";
@@ -79,16 +83,19 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 	protected ArrayList<StudentListData> doInBackground(Void... params) {
 		
 		ServiceHandler sh = new ServiceHandler(mToken);
-		
+		Log.i(TAG, "Service handler and token is send");
 		String jsonData = sh.makeServiceCall(url, ServiceHandler.GET);
 		
 		try{
 			//Processing the received JSONArray
 			mJSONArrayMain = new JSONArray(jsonData);
+			Log.i(TAG, "Main array is Passed to JSONArrayMain");
 			//Getting all Objects from the Main Array
+			
 			for(int i=0; i<mJSONArrayMain.length(); i++){
 				
 				StudentListData student_Data = new StudentListData();
+				Log.i(TAG, "StudentListData Model is initialized");
 				
 				mJSONObjectMain = mJSONArrayMain.getJSONObject(i);
 				
@@ -108,8 +115,9 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 				mJSONArrayDeliv = mJSONObjectMain.getJSONArray(TAG_DELIVERABLES);
 					if(mJSONArrayDeliv.length() != 0){
 						
+						student_Data.setTotalDeliverables(mJSONArrayDeliv.length());
 						//Getting Deliverable Objects from Deliverable Array
-						for(int j=0; j<mJSONArrayDeliv.length(); j++){
+						/*for(int j=0; j<mJSONArrayDeliv.length(); j++){
 							
 							ProjectListData project_Data = new ProjectListData(); 
 							
@@ -125,16 +133,19 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 							project_Data.setDeliverableStatus(delivered_status);
 							
 							delivData.add(project_Data);
+							
 						
-						}
+						}*/
 						
 					}else{
-						ProjectListData project_Data = new ProjectListData();
-						project_Data.setNoDeliverableMessage("No Deliverables history. Please vacate ASAP");
+						
+						student_Data.setDeliverableExist(false);
 					}
 					
-				student_Data.setDelivList(delivData);
+				//student_Data.setDelivList(delivData);
+				
 				studentData.add(student_Data);
+				Log.i(TAG, "Object"+i+"added to the ArrayList<StudentListData> student_data");
 			}
 		
 		}catch(JSONException e){
@@ -151,5 +162,6 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 			pDialog.dismiss();
 		
 		mStudentList.dataDisplay(result);
+		
 	}
 }

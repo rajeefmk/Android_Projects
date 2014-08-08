@@ -61,7 +61,6 @@ public class ServiceHandler {
 			
 			mHttpResponse = httpClient.execute(mHttpPost);
 			
-			
 			mHttpEntity = mHttpResponse.getEntity();
 			
 			tokenResponseCode = mHttpResponse.getStatusLine().getStatusCode();

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import us.jaaga.demovote.R;
 import us.jaaga.demovote.models.ProjectListData;
-import us.jaaga.demovote.models.StudentListData;
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,11 +39,16 @@ public class DeliverableListAdapter extends ArrayAdapter<ProjectListData>  {
 		
 		//Name of Deliverable
 		TextView delivName = (TextView) row.findViewById(R.id.delivName);
-		delivName.setText(currentProject.getDeliverableName());
+		
+		String delivTitle = currentProject.getDeliverableTitle();
+		
+		
+		delivName.setText("Name:"+delivTitle);
 		
 		//Number of Projects
 		TextView totalNum = (TextView) row.findViewById(R.id.delivNumbers);
-		totalNum.setText(currentProject.getDeliverableName());
+		
+		//TODO Get this data from previous call.
 		
 		return row;
 	}
