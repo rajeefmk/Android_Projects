@@ -305,7 +305,7 @@ int id action_context_bar 0x7f060020
 int id action_menu_divider 0x7f060019
 int id action_menu_presenter 0x7f06001a
 int id action_mode_close_button 0x7f060027
-int id action_settings 0x7f06004f
+int id action_settings 0x7f06004d
 int id activity_chooser_view_content 0x7f060028
 int id always 0x7f06000f
 int id beginning 0x7f060014
@@ -313,7 +313,6 @@ int id btn_sign_in 0x7f060040
 int id checkbox 0x7f060030
 int id collapseActionView 0x7f060011
 int id currentVote 0x7f060046
-int id date 0x7f06004e
 int id default_activity_button 0x7f06002b
 int id dialog 0x7f060012
 int id disableHome 0x7f06000c
@@ -344,7 +343,6 @@ int id progress_horizontal 0x7f06001c
 int id projectDescription 0x7f060043
 int id projectName 0x7f060042
 int id projectNameTag 0x7f06004a
-int id projectNumbers 0x7f06004d
 int id radio 0x7f060032
 int id satellite 0x7f060002
 int id search_badge 0x7f060035

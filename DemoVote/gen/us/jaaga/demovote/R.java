@@ -1288,7 +1288,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f060019;
         public static final int action_menu_presenter=0x7f06001a;
         public static final int action_mode_close_button=0x7f060027;
-        public static final int action_settings=0x7f06004f;
+        public static final int action_settings=0x7f06004d;
         public static final int activity_chooser_view_content=0x7f060028;
         public static final int always=0x7f06000f;
         public static final int beginning=0x7f060014;
@@ -1296,7 +1296,6 @@ containing a value of this type.
         public static final int checkbox=0x7f060030;
         public static final int collapseActionView=0x7f060011;
         public static final int currentVote=0x7f060046;
-        public static final int date=0x7f06004e;
         public static final int default_activity_button=0x7f06002b;
         public static final int dialog=0x7f060012;
         public static final int disableHome=0x7f06000c;
@@ -1327,7 +1326,6 @@ containing a value of this type.
         public static final int projectDescription=0x7f060043;
         public static final int projectName=0x7f060042;
         public static final int projectNameTag=0x7f06004a;
-        public static final int projectNumbers=0x7f06004d;
         public static final int radio=0x7f060032;
         public static final int satellite=0x7f060002;
         public static final int search_badge=0x7f060035;

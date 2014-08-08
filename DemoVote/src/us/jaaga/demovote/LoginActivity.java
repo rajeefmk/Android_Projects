@@ -102,7 +102,7 @@ public class LoginActivity extends Activity {
 
 	protected void runIntent(){
 		
-		Intent mIntent = new Intent(LoginActivity.this, StudentList.class);
+		Intent mIntent = new Intent(LoginActivity.this, StudentListActivity.class);
 	    startActivity(mIntent);
 	}
 	
