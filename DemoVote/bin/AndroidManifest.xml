@@ -54,7 +54,7 @@
             android:label="string/past_project" />
         
         <activity
-            android:name=".DeliverableList"
+            android:name=".DeliverableListActivity"
             android:label="Deliverables" />
         
         <activity

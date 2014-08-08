@@ -10,16 +10,37 @@ public class ProjectListData implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 	String deliverableId;
-	String deliverableName;
 	Boolean deliverableStatus;
 	String deliverablesDescription;
+	String deliverableTitle;
 	boolean votingStatus;
 	
+	int totalVotes;
+	//String noDeliverableMessage;
+	
+	public String getDeliverableId() {
+		return deliverableId;
+	}
+	public void setDeliverableId(String deliverableId) {
+		this.deliverableId = deliverableId;
+	}
+	public Boolean getDeliverableStatus() {
+		return deliverableStatus;
+	}
+	public void setDeliverableStatus(Boolean deliverableStatus) {
+		this.deliverableStatus = deliverableStatus;
+	}
 	public String getDeliverablesDescription() {
 		return deliverablesDescription;
 	}
 	public void setDeliverablesDescription(String deliverablesDescription) {
 		this.deliverablesDescription = deliverablesDescription;
+	}
+	public String getDeliverableTitle() {
+		return deliverableTitle;
+	}
+	public void setDeliverableTitle(String deliverableTitle) {
+		this.deliverableTitle = deliverableTitle;
 	}
 	public boolean isVotingStatus() {
 		return votingStatus;
@@ -33,35 +54,9 @@ public class ProjectListData implements Serializable {
 	public void setTotalVotes(int totalVotes) {
 		this.totalVotes = totalVotes;
 	}
-	int totalVotes;
 	
-	String noDeliverableMessage;
 	
-	public String getNoDeliverableMessage() {
-		return noDeliverableMessage;
-	}
-	public void setNoDeliverableMessage(String noDeliverableMessage) {
-		this.noDeliverableMessage = noDeliverableMessage;
-	}
 	
-	public String getDeliverableId() {
-		return deliverableId;
-	}
-	public void setDeliverableId(String deliverableId) {
-		this.deliverableId = deliverableId;
-	}
-	public String getDeliverableName() {
-		return deliverableName;
-	}
-	public void setDeliverableName(String deliverableName) {
-		this.deliverableName = deliverableName;
-	}
-	public Boolean getDeliverableStatus() {
-		return deliverableStatus;
-	}
-	public void setDeliverableStatus(Boolean deliverableStatus) {
-		this.deliverableStatus = deliverableStatus;
-	}
 	
 	/*@Override
 	public int describeContents() {
@@ -71,7 +66,7 @@ public class ProjectListData implements Serializable {
 	public void writeToParcel(Parcel paramParcel, int paramInt) {
 		
 		paramParcel.writeString(deliverableId);
-		paramParcel.writeString(deliverableName);
+		paramParcel.writeString(deliverableTitle);
 		paramParcel.writeByte((byte) (deliverableStatus ? 1 : 0)); //if myBoolean == true, byte == 1
 		
 		//boolean deliverableStatus = (Boolean) source.readValue();

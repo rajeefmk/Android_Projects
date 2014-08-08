@@ -6,15 +6,16 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import us.jaaga.demovote.DeliverableList;
+import us.jaaga.demovote.DeliverableListActivity;
 import us.jaaga.demovote.models.ProjectListData;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
+import android.util.Log;
 
 public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>> {
 
 	private static String url = "https://jaagademovote.herokuapp.com/api/v1/deliverables?user=";
-	DeliverableList mDeliverableList;
+	DeliverableListActivity mDeliverableList;
 	ProgressDialog pDialog;
 	
 	private static String user_id;
@@ -23,19 +24,28 @@ public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>
 	//JSON Node names for Deliverables Data
 			
 			private static final String TAG_DELIVERABLES_ID = "_id";	
-			private static final String TAG_DELIVERABLES_TITLE = "title";
 			private static final String TAG_DELIVERED_STATUS = "delivered";
-			private static final String TAG_VOTINGOPEN = "votingopen";
 			private static final String TAG_DELIVERABLES_DESCRIPTION = "description";
-			private static final String TAG_TOTAL_VOTES = "votes";
+			private static final String TAG_DELIVERABLES_TITLE = "title";
+			private static final String TAG_VOTING_STATUS = "votingopen";
+			
+			private static final String TAG_VOTE_DETAILS = "votes";
+			
+			
+			private static final String TAG = "AsyncDeliv";
 			
 			String mToken;
 	
-	public AsyncDeliv(DeliverableList activity, String userid, String token){
+	public AsyncDeliv(DeliverableListActivity activity, String userid, String token){
 		
 		mDeliverableList = activity;
+		Log.i(TAG, "context set from received DeliverableListActivity");
+		
 		user_id = userid;
+		Log.i(TAG, "userid is set from constructor recieved value");
+		
 		mToken = token;
+		Log.i(TAG, "Token received and is set");
 	}	
 	
 	@Override
@@ -51,7 +61,7 @@ public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>
 	protected ArrayList<ProjectListData> doInBackground(Void... params) {
 		
 		String final_url = url+user_id ;
-		ServiceHandler sh = new ServiceHandler();
+		ServiceHandler sh = new ServiceHandler(mToken);
 		String jsonData = sh.makeServiceCall(final_url, ServiceHandler.GET);
 		
 		try{
@@ -63,25 +73,27 @@ public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>
 				for(int i=0; i<mainArray.length(); i++){
 					
 					ProjectListData newData = new ProjectListData();
+					Log.i(TAG, "ProjectListData model created for deliverable" + i);
 					
 					JSONObject delivObjects = mainArray.getJSONObject(i);
 					
 						String deliv_id = delivObjects.getString(TAG_DELIVERABLES_ID);
 						newData.setDeliverableId(deliv_id);
 						
-						String deliv_title = delivObjects.getString(TAG_DELIVERABLES_TITLE);
-						newData.setDeliverableName(deliv_title);
+						boolean deliv_status = delivObjects.getBoolean(TAG_DELIVERED_STATUS);
+						newData.setDeliverableStatus(deliv_status);
 						
 						String deliv_descr = delivObjects.getString(TAG_DELIVERABLES_DESCRIPTION);
 						newData.setDeliverablesDescription(deliv_descr);
 						
-						boolean deliv_status = delivObjects.getBoolean(TAG_DELIVERED_STATUS);
-						newData.setDeliverableStatus(deliv_status);
+						String deliv_title = delivObjects.getString(TAG_DELIVERABLES_TITLE);
+						newData.setDeliverableTitle(deliv_title);
 						
-						boolean voting_status = delivObjects.getBoolean(TAG_VOTINGOPEN);
+						
+						boolean voting_status = delivObjects.getBoolean(TAG_VOTING_STATUS);
 						newData.setVotingStatus(voting_status);
 						
-						/*JSONArray votingObjects = delivObjects.getJSONArray(TAG_TOTAL_VOTES);
+						/*JSONArray votingObjects = delivObjects.getJSONArray(TAG_VOTE_DETAILS);
 						int totalVotes = votingObjects.length();
 						newData.setTotalVotes(totalVotes);*/
 						
@@ -91,7 +103,7 @@ public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>
 			}else{
 					
 					ProjectListData newData = new ProjectListData();
-					newData.setNoDeliverableMessage("You have no deliverables. You better vacate ASAP");
+					//newData.setNoDeliverableMessage("You have no deliverables. You better vacate ASAP");
 					delivData.add(newData);
 				}
 					

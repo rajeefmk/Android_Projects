@@ -44,13 +44,11 @@ public class LoginActivity extends Activity {
 		mSharedPreferences = getSharedPreferences("demo_vote", MODE_PRIVATE);
 		String test_token = mSharedPreferences.getString("token", null);
 		if(test_token != null){
-			
+			Log.i(TAG, "Skipping signIn since token is present");
 			runIntent();
 			finish();
 			
 		}
-		
-		
 		
 		mSignInButton = (SignInButton) findViewById(R.id.btn_sign_in);
 		
@@ -101,7 +99,8 @@ public class LoginActivity extends Activity {
 	}
 
 	protected void runIntent(){
-		
+	
+		Log.i(TAG,"runIntent is called");
 		Intent mIntent = new Intent(LoginActivity.this, StudentListActivity.class);
 	    startActivity(mIntent);
 	}

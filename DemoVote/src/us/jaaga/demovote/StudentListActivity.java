@@ -4,20 +4,22 @@ import java.util.ArrayList;
 
 import us.jaaga.demovote.adapter.StudentListAdapter;
 import us.jaaga.demovote.helper.AsyncData;
-import us.jaaga.demovote.models.ProjectListData;
 import us.jaaga.demovote.models.StudentListData;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
 public class StudentListActivity extends ListActivity {
 
 	ArrayList<StudentListData> studentListData = new ArrayList<StudentListData>();
-	ArrayList<ProjectListData> projectListData = new ArrayList<ProjectListData>();
+	//ArrayList<ProjectListData> projectListData = new ArrayList<ProjectListData>();
 	StudentListAdapter mStudentListAdapter;
+	private static final String TAG = "StudentListActivity";
+	Intent mIntent;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +29,11 @@ public class StudentListActivity extends ListActivity {
 		
 		SharedPreferences mSharedPreferences = getSharedPreferences("demo_vote", MODE_PRIVATE);
 		String test_token = mSharedPreferences.getString("token", null);
+		Log.i(TAG, "Token is loaded");
 		
 		AsyncData mAsyncData = new AsyncData(this, test_token);
+		Log.i(TAG, "Async constructer has been loaded with activity and token");
+		
 		mAsyncData.execute();
 		
 	}
@@ -36,14 +41,34 @@ public class StudentListActivity extends ListActivity {
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		//super.onListItemClick(l, v, position, id);
+		Log.i(TAG, "Onclicked item is called");
 		
-		Intent mIntent = new Intent(StudentListActivity.this, DeliverableList.class);
+		
 		StudentListData mStudentListData = (StudentListData) getListAdapter().getItem(position);
+		Log.i(TAG, "StudentListData model is initialized based on the object selected from list");
 		
-		String user_id = mStudentListData.getId();
+		if(!mStudentListData.isDeliverableExist()){
+			
+			mIntent = new Intent(StudentListActivity.this, DeliverableListActivity.class);
+			mIntent.putExtra("Network_key", false);
+			Log.i(TAG,"Network key is set false");
+			
+		}else{
 		
-		mIntent.putExtra("user_id", user_id);
+			String user_id = mStudentListData.getId();
+			Log.i(TAG, "unique user id obtained from above objec & stored in local variable");
+			
+			mIntent = new Intent(StudentListActivity.this, DeliverableListActivity.class);
+			mIntent.putExtra("user_id", user_id);
+			Log.i(TAG, "unique user-id is added to intent");
+			
+			mIntent.putExtra("Network_key", true);
+			Log.i(TAG,"Network key is set true");
+			
+		}
 		
+		startActivity(mIntent);
+		Log.i(TAG, "Intent Is Started");
 		///projectListData = mStudentListData.getDelivList();
 		
 		//Bundle mBundle = new Bundle();
@@ -58,14 +83,16 @@ public class StudentListActivity extends ListActivity {
 		//mEditor.putString("deliv_data", ObjectSe)
 */		
 		
-		startActivity(mIntent);
 		
 	}
 	
 	public void dataDisplay(ArrayList<StudentListData> data){
 		
 		mStudentListAdapter = new StudentListAdapter(this, data);
+		Log.i(TAG, "Context and ArrayList obt from AsyncData passed to constructor of StudentListAdapter");
+		
 		setListAdapter(mStudentListAdapter);
+		Log.i(TAG, "ListAdapter is set");
 		
 	}
 }

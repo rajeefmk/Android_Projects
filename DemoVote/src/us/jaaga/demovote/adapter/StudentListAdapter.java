@@ -43,6 +43,7 @@ public class StudentListAdapter extends ArrayAdapter<StudentListData>  {
 		
 		//Setting Picture from url
 		// TODO Inflate image url here . Possible use of AsyncImage needed to get image from url
+		//TODO check with picasa library for loading image
 		return row;
 	}
 

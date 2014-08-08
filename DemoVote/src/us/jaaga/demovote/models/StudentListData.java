@@ -2,9 +2,10 @@ package us.jaaga.demovote.models;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+//public class StudentListData implements Serializable {
 public class StudentListData implements Serializable {
+	
 	
 	/**
 	 * 
@@ -13,7 +14,27 @@ public class StudentListData implements Serializable {
 	String id;
 	String name;
 	String pictureUrl;
+	int totalDeliverables;
+	boolean deliverableExist = true;
+
 	
+	public boolean isDeliverableExist() {
+		return deliverableExist;
+	}
+
+	public void setDeliverableExist(boolean deliverableExist) {
+		this.deliverableExist = deliverableExist;
+	}
+
+	public int getTotalDeliverables() {
+		
+		return totalDeliverables;
+	}
+
+	public void setTotalDeliverables(int totalDeliverables) {
+		
+		this.totalDeliverables = totalDeliverables;
+	}
 	ArrayList<ProjectListData> delivList = new ArrayList<ProjectListData>();
 	
 	public ArrayList<ProjectListData> getDelivList() {
