@@ -20,6 +20,9 @@ public class ProjectList extends FragmentActivity implements TabListener {
 	
 	private String[] tabs = {"Upcoming","Past"};
 	
+	
+	//ArrayList<ProjectListData> projectdata = new ArrayList<ProjectListData>();
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -29,9 +32,17 @@ public class ProjectList extends FragmentActivity implements TabListener {
 		mActionBar = getActionBar();
 		mTabsPagerAdapter = new TabsPagerAdapter(getSupportFragmentManager());
 		
+		/*projectdata = (ArrayList<ProjectListData>) getIntent().getExtras().getSerializable("myProject");*/
 		mViewPager.setAdapter(mTabsPagerAdapter);
+		
+		//mTabsPagerAdapter(projectdata);
+		
 		//mActionBar.setHomeButtonEnabled(false);
-		mActionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		//Intent mIntent = getIntent();
+		
+		
+		
+		  // UpcomingProject(projectdata);
 		
 		for(String tab_name : tabs){
 			
@@ -58,8 +69,6 @@ public class ProjectList extends FragmentActivity implements TabListener {
 			}
 		});
 	}
-	
-	
 	
 	@Override
 	public void onTabReselected(Tab tab, FragmentTransaction ft) {

@@ -18,13 +18,17 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 	StudentListActivity mStudentList;
 	ArrayList<StudentListData> studentData = new ArrayList<StudentListData>();
 	ArrayList<ProjectListData> delivData = new ArrayList<ProjectListData>();
+	String mToken;
 	
-	public AsyncData(StudentListActivity activity){
+	public AsyncData(StudentListActivity activity, String token){
 		
 		mStudentList = activity;
+		mToken = token;
 	}
+	
+	
 
-	private static String url = "http://demo8703284.mockable.io/firstcall";
+	private static String url = "https://jaagademovote.herokuapp.com/api/v1/family?populate=deliverables";
 	
 	// JSON Node names for Main Data
 	private static final String TAG_STUDENT_ID = "_id";
@@ -40,8 +44,9 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 	private static final String TAG_DELIVERABLES_ID = "_id";	
 	private static final String TAG_DELIVERABLES_TITLE = "title";
 	private static final String TAG_DELIVERED_STATUS = "delivered";
-	//private static final Boolean TAG_VOTINGOPEN = "votingopen";
+	//private static final String TAG_VOTINGOPEN = "votingopen";
 	//private static final String TAG_DELIVERABLES_DESCRIPTION = "description";
+	//private static final String TAG_TOTAL_VOTES = "votes";
 	
 	
 	//Main Array
@@ -73,8 +78,7 @@ public class AsyncData extends AsyncTask<Void, Void, ArrayList<StudentListData>>
 	@Override
 	protected ArrayList<StudentListData> doInBackground(Void... params) {
 		
-		ServiceHandler sh = new ServiceHandler();
-		
+		ServiceHandler sh = new ServiceHandler(mToken);
 		
 		String jsonData = sh.makeServiceCall(url, ServiceHandler.GET);
 		

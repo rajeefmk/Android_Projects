@@ -22,10 +22,16 @@ public class ServiceHandler {
 	public final static int POST = 2;
 	//static String REQUEST_CODE_401;
 	static String REQUEST_CODE_403;
+	String mToken;
 
+	public ServiceHandler(String token) {
+		
+		mToken = token;
+	}
+	
 	public ServiceHandler() {
 		
-	}
+	}	
 	
 	
 	
@@ -120,8 +126,11 @@ public class ServiceHandler {
 					url += "?" + paramString;
 				}*/
 				
-				HttpGet httpGet = new HttpGet(url);
-				httpResponse = httpClient.execute(httpGet);
+				HttpGet mHttpGet = new HttpGet(url);
+				mHttpGet.setHeader("Authorization",mToken);
+				httpResponse = httpClient.execute(mHttpGet);
+				
+				
 
 			}
 			

@@ -3,8 +3,8 @@ package us.jaaga.demovote.fragments;
 
 
 import us.jaaga.demovote.R;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 
 public class PastProjects extends Fragment {
 
+	//ArrayList<ProjectListData> data = new ArrayList<ProjectListData>();
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {

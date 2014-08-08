@@ -3,6 +3,7 @@ package us.jaaga.demovote.helper;
 import java.io.IOException;
 
 import us.jaaga.demovote.LoginActivity;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -20,7 +21,7 @@ public class AsyncToken extends AsyncTask<Void, Void, String>{
 	private static final String SCOPE = "audience:server:client_id:1093155095616-b90oicomnsltkfgc72na1l80nfv890td.apps.googleusercontent.com";
 	private static final String TAG = "AsyncTaskToken";
 	//url for sending token to th backend for verification
-	private static final String url = "http://192.168.0.6:3000/api/android/authorize";
+	private static final String url = "https://jaagademovote.herokuapp.com/api/android/authorize";
 	static final int REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR = 1001;
 	static String REQUEST_CODE_403;
 	//static String REQUEST_CODE_401;
@@ -29,6 +30,7 @@ public class AsyncToken extends AsyncTask<Void, Void, String>{
 	
 	
 	public String ResponseData;
+	ProgressDialog pDialog;
 	
 	public AsyncToken(LoginActivity activity, String Email){
 		
@@ -37,6 +39,16 @@ public class AsyncToken extends AsyncTask<Void, Void, String>{
 		this.mActivity = activity;
 		//this.mScope = Scope;
 		this.mEmail = Email;
+	}
+	
+	@Override
+	protected void onPreExecute() {
+		super.onPreExecute();
+		
+		pDialog = new ProgressDialog(mActivity);
+		pDialog.setMessage("Please wait...");
+		pDialog.setCancelable(false);
+		pDialog.show();
 	}
 	
 	@Override
@@ -83,10 +95,13 @@ public class AsyncToken extends AsyncTask<Void, Void, String>{
 	@Override
 	protected void onPostExecute(String result) {
 		//super.onPostExecute(result);
-		
+		if (pDialog.isShowing())
+			pDialog.dismiss();
 		mActivity.setToken(result);
 		
 	}
+	
+	
 	private String fetchToken() throws IOException {
 		
 		 try {
