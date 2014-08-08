@@ -12,6 +12,28 @@ public class ProjectListData implements Serializable {
 	String deliverableId;
 	String deliverableName;
 	Boolean deliverableStatus;
+	String deliverablesDescription;
+	boolean votingStatus;
+	
+	public String getDeliverablesDescription() {
+		return deliverablesDescription;
+	}
+	public void setDeliverablesDescription(String deliverablesDescription) {
+		this.deliverablesDescription = deliverablesDescription;
+	}
+	public boolean isVotingStatus() {
+		return votingStatus;
+	}
+	public void setVotingStatus(boolean votingStatus) {
+		this.votingStatus = votingStatus;
+	}
+	public int getTotalVotes() {
+		return totalVotes;
+	}
+	public void setTotalVotes(int totalVotes) {
+		this.totalVotes = totalVotes;
+	}
+	int totalVotes;
 	
 	String noDeliverableMessage;
 	

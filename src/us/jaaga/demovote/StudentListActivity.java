@@ -1,7 +1,6 @@
 package us.jaaga.demovote;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import us.jaaga.demovote.adapter.StudentListAdapter;
 import us.jaaga.demovote.helper.AsyncData;
@@ -9,6 +8,7 @@ import us.jaaga.demovote.models.ProjectListData;
 import us.jaaga.demovote.models.StudentListData;
 import android.app.ListActivity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
@@ -25,7 +25,10 @@ public class StudentListActivity extends ListActivity {
 		
 		setContentView(R.layout.students_list);
 		
-		AsyncData mAsyncData = new AsyncData(this);
+		SharedPreferences mSharedPreferences = getSharedPreferences("demo_vote", MODE_PRIVATE);
+		String test_token = mSharedPreferences.getString("token", null);
+		
+		AsyncData mAsyncData = new AsyncData(this, test_token);
 		mAsyncData.execute();
 		
 	}
@@ -34,15 +37,27 @@ public class StudentListActivity extends ListActivity {
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		//super.onListItemClick(l, v, position, id);
 		
-		Intent mIntent = new Intent(StudentListActivity.this, ProjectList.class);
+		Intent mIntent = new Intent(StudentListActivity.this, DeliverableList.class);
 		StudentListData mStudentListData = (StudentListData) getListAdapter().getItem(position);
 		
-		projectListData = mStudentListData.getDelivList();
+		String user_id = mStudentListData.getId();
 		
-		Bundle mBundle = new Bundle();
-		mBundle.putSerializable("project", projectListData);
+		mIntent.putExtra("user_id", user_id);
+		
+		///projectListData = mStudentListData.getDelivList();
+		
+		//Bundle mBundle = new Bundle();
+		//mBundle.putSerializable("project", projectListData);
 		//mIntent.putParcelableList("key", projectListData);
-		mIntent.putExtra("Deliv", mBundle);
+		
+		//mIntent.putExtra("key", (Serializable)projectListData);
+		
+		/*SharedPreferences mSharedPreference = getSharedPreferences("delivdata", MODE_PRIVATE);
+		Editor mEditor = mSharedPreference.edit();
+			
+		//mEditor.putString("deliv_data", ObjectSe)
+*/		
+		
 		startActivity(mIntent);
 		
 	}

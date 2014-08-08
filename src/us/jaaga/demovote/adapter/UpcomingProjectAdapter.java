@@ -1,5 +1,12 @@
 package us.jaaga.demovote.adapter;
 
-public class UpcomingProjectAdapter {
+import java.util.ArrayList;
 
+import us.jaaga.demovote.models.ProjectListData;
+
+public class UpcomingProjectAdapter extends ArrayList<ProjectListData> {
+	
+	/**
+	 * 
+	 */
 }
