@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal" 
-    
-    
+	android:background="@drawable/bitmap"    
     >
 
    <!--  <ImageView
@@ -23,7 +22,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" 
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center_vertical"
         >
 
@@ -37,6 +36,7 @@
             android:textStyle="bold"
             android:lines="1"
             android:layout_marginBottom="2dp"
+            android:typeface="serif"
             />
  
        <TextView
@@ -51,6 +51,7 @@
             android:textColor="#666666"                                                
             android:textSize="17sp"
             android:layout_weight="1"
+            android:typeface="serif"
             />  
        <TextView
             android:id="@+id/delivStatus"
@@ -64,6 +65,7 @@
             android:textColor="#666666"                                                
             android:textSize="17sp"
             android:layout_weight="1"
+            android:typeface="serif"
             />  
 
        <!--  <TextView

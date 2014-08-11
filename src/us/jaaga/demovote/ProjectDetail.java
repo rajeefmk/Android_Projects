@@ -25,6 +25,8 @@ public class ProjectDetail extends Activity{
 		mIntent = getIntent();
 		
 		delivName.setText(mIntent.getStringExtra("name"));
+		getActionBar().setTitle(mIntent.getStringExtra("name"));
+		
 		delivDescription.setText(mIntent.getStringExtra("description"));
 		delivUpVoteCount.setText("Total Upvotes: " + mIntent.getIntExtra("upVoteCount", upVoteCount));
 		delivDownVoteCount.setText("Total DownVotes: " + mIntent.getIntExtra("downVoteCount", downVoteCount));

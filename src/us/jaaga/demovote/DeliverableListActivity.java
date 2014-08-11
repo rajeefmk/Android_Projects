@@ -22,7 +22,7 @@ public class DeliverableListActivity extends ListActivity {
 	//ArrayList<StudentListData> studentListData = new ArrayList<StudentListData>();
 	ArrayList<ProjectListData> projectListData = new ArrayList<ProjectListData>();
 	DeliverableListAdapter mDeliverableListAdapter;
-	String user_id;
+	String user_id,name;
 	Intent mIntent;
 	
 	private static final String TAG = "DeliverableListActivity";
@@ -43,6 +43,8 @@ public class DeliverableListActivity extends ListActivity {
 			//Intent mIntent = getIntent();
 			
 			user_id = getIntent().getStringExtra("user_id");
+			name = getIntent().getStringExtra("name");
+			getActionBar().setTitle(name+"'s Deliverables");
 			
 			Log.i(TAG, "unique user obtained from intent");
 			
