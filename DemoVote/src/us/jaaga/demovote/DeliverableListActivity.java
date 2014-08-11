@@ -15,6 +15,9 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 public class DeliverableListActivity extends ListActivity {
+	
+	//TODO Send Upvote and DownVote data to next activity.
+	// TODO Pull to Refresh in this and in Project Detail activity
 
 	//ArrayList<StudentListData> studentListData = new ArrayList<StudentListData>();
 	ArrayList<ProjectListData> projectListData = new ArrayList<ProjectListData>();
@@ -40,6 +43,7 @@ public class DeliverableListActivity extends ListActivity {
 			//Intent mIntent = getIntent();
 			
 			user_id = getIntent().getStringExtra("user_id");
+			
 			Log.i(TAG, "unique user obtained from intent");
 			
 			AsyncDeliv mAsyncDeliv = new AsyncDeliv(this,user_id,test_token );
@@ -62,12 +66,17 @@ public class DeliverableListActivity extends ListActivity {
 		
 		ProjectListData mProjectListData = (ProjectListData) getListAdapter().getItem(position);
 		
-		String project_name = mProjectListData.getDeliverableTitle();
-		String project_description = mProjectListData.getDeliverablesDescription();
+		String projectName = mProjectListData.getDeliverableTitle();
+		String projectDescription = mProjectListData.getDeliverablesDescription();
+		int upVoteCount = mProjectListData.getTotalUpVote();
+		int downVoteCount = mProjectListData.getTotalDownVote();
+		
 		
 		Intent mIntent = new Intent(DeliverableListActivity.this, ProjectDetail.class);
-		mIntent.putExtra("name", project_name);
-		mIntent.putExtra("description", project_description);
+		mIntent.putExtra("name", projectName);
+		mIntent.putExtra("description", projectDescription);
+		mIntent.putExtra("upVoteCount", upVoteCount);
+		mIntent.putExtra("downVoteCount", downVoteCount);
 		
 		startActivity(mIntent);
 		

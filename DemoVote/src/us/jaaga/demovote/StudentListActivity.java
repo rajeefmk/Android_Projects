@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 public class StudentListActivity extends ListActivity {
 
+	//Picasa library for image loading
 	ArrayList<StudentListData> studentListData = new ArrayList<StudentListData>();
 	//ArrayList<ProjectListData> projectListData = new ArrayList<ProjectListData>();
 	StudentListAdapter mStudentListAdapter;

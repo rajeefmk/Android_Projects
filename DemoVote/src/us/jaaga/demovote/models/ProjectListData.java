@@ -13,11 +13,26 @@ public class ProjectListData implements Serializable {
 	Boolean deliverableStatus;
 	String deliverablesDescription;
 	String deliverableTitle;
-	boolean votingStatus;
+	boolean votingStatus = false;
 	
 	int totalVotes;
 	//String noDeliverableMessage;
 	
+	int totalUpVote;
+	int totalDownVote;
+	
+	public int getTotalUpVote() {
+		return totalUpVote;
+	}
+	public void setTotalUpVote(int totalUpVote) {
+		this.totalUpVote = totalUpVote;
+	}
+	public int getTotalDownVote() {
+		return totalDownVote;
+	}
+	public void setTotalDownVote(int totalDownVote) {
+		this.totalDownVote = totalDownVote;
+	}
 	public String getDeliverableId() {
 		return deliverableId;
 	}
@@ -98,6 +113,6 @@ public class ProjectListData implements Serializable {
 		
 	}*/
 	
-		
+	
 	
 }

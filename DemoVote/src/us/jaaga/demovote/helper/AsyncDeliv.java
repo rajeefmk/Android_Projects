@@ -15,6 +15,7 @@ import android.util.Log;
 public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>> {
 
 	private static String url = "https://jaagademovote.herokuapp.com/api/v1/deliverables?user=";
+	private static String url_votes = "&populate=votes";
 	DeliverableListActivity mDeliverableList;
 	ProgressDialog pDialog;
 	
@@ -31,9 +32,10 @@ public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>
 			
 			private static final String TAG_VOTE_DETAILS = "votes";
 			
-			
+	
 			private static final String TAG = "AsyncDeliv";
 			
+			public int totalDeliv;
 			String mToken;
 	
 	public AsyncDeliv(DeliverableListActivity activity, String userid, String token){
@@ -60,7 +62,7 @@ public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>
 	@Override
 	protected ArrayList<ProjectListData> doInBackground(Void... params) {
 		
-		String final_url = url+user_id ;
+		String final_url = url+user_id+url_votes ;
 		ServiceHandler sh = new ServiceHandler(mToken);
 		String jsonData = sh.makeServiceCall(final_url, ServiceHandler.GET);
 		
@@ -69,8 +71,8 @@ public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>
 			
 			if(mainArray.length() != 0 ){
 				
-			
-				for(int i=0; i<mainArray.length(); i++){
+				
+				for(int i=0; i < mainArray.length(); i++){
 					
 					ProjectListData newData = new ProjectListData();
 					Log.i(TAG, "ProjectListData model created for deliverable" + i);
@@ -87,23 +89,47 @@ public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>
 						newData.setDeliverablesDescription(deliv_descr);
 						
 						String deliv_title = delivObjects.getString(TAG_DELIVERABLES_TITLE);
-						newData.setDeliverableTitle(deliv_title);
+						newData.setDeliverableTitle((i+1) + "."+deliv_title);
 						
 						
 						boolean voting_status = delivObjects.getBoolean(TAG_VOTING_STATUS);
 						newData.setVotingStatus(voting_status);
 						
-						/*JSONArray votingObjects = delivObjects.getJSONArray(TAG_VOTE_DETAILS);
-						int totalVotes = votingObjects.length();
-						newData.setTotalVotes(totalVotes);*/
+						//JSONArray mJSONArrayVote = new JSONArray(TAG_VOTE_DETAILS);
+						JSONArray mJSONArrayVote = delivObjects.getJSONArray(TAG_VOTE_DETAILS);
 						
+							int upVoteCounter=0;
+							int downVoteCounter=0;
+							
+							if(mJSONArrayVote.length() != 0){
+								
+								for(int j=0; j < mJSONArrayVote.length(); j++){
+									
+									JSONObject mJSONObjectVote = mJSONArrayVote.getJSONObject(j);
+									
+									if(mJSONObjectVote.getBoolean("vote") == true){
+										
+										upVoteCounter = upVoteCounter + 1;
+										
+									}else{
+										
+										downVoteCounter = downVoteCounter + 1;
+									}
+								}
+								
+							}
+							
+						newData.setTotalVotes(mJSONArrayVote.length());
+						newData.setTotalUpVote(upVoteCounter);
+						newData.setTotalDownVote(downVoteCounter);
+							
 						delivData.add(newData);
 				}
 				
 			}else{
 					
 					ProjectListData newData = new ProjectListData();
-					//newData.setNoDeliverableMessage("You have no deliverables. You better vacate ASAP");
+					//newData.setNoDeliverableMessage("You have no past or upcoming deliverables. You better vacate ASAP");
 					delivData.add(newData);
 				}
 					

@@ -38,17 +38,25 @@ public class DeliverableListAdapter extends ArrayAdapter<ProjectListData>  {
 		ProjectListData currentProject = projectList.get(position);
 		
 		//Name of Deliverable
-		TextView delivName = (TextView) row.findViewById(R.id.delivName);
-		
 		String delivTitle = currentProject.getDeliverableTitle();
+		TextView delivName = (TextView) row.findViewById(R.id.delivName);
+		delivName.setText(delivTitle);
 		
+		//Voting Status of Deliverable
+		boolean delivStatus = currentProject.getDeliverableStatus();
+		TextView delivStatusView = (TextView) row.findViewById(R.id.delivStatus);
+		if(delivStatus != false){
+			delivStatusView.setText("Voting Status: Open");
+		}
+		else{
+			delivStatusView.setText("Voting Status: Closed");
+		}
 		
-		delivName.setText("Name:"+delivTitle);
+		//No. of votes of Deliverable
+		int voteCount = currentProject.getTotalVotes();
+		TextView voteCountView = (TextView) row.findViewById(R.id.delivVote);
+		voteCountView.setText("Total Votes: "+ voteCount);
 		
-		//Number of Projects
-		TextView totalNum = (TextView) row.findViewById(R.id.delivNumbers);
-		
-		//TODO Get this data from previous call.
 		
 		return row;
 	}
