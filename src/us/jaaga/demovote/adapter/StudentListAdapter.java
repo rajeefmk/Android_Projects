@@ -41,6 +41,10 @@ public class StudentListAdapter extends ArrayAdapter<StudentListData>  {
 		TextView studentName = (TextView) row.findViewById(R.id.studentName);
 		studentName.setText(currentStudent.getName());
 		
+		//Total Deliverables
+		TextView totalDeliv = (TextView) row.findViewById(R.id.projectNumbers);
+		totalDeliv.setText("Total Deliverables" + ": " + currentStudent.getTotalDeliverables());
+		
 		//Setting Picture from url
 		// TODO Inflate image url here . Possible use of AsyncImage needed to get image from url
 		//TODO check with picasa library for loading image

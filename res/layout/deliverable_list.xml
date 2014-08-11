@@ -11,17 +11,20 @@
     android:gravity="center"
     tools:context=".ProjectList" >
 
-    <ListView
+     <ListView
 	    android:id="@android:id/list"
-	    android:layout_width="fill_parent"
-	    android:layout_height="fill_parent" 
-    />
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent" 
+    /> 
     
     <TextView
        android:id="@android:id/empty"
        android:layout_width="match_parent"
        android:layout_height="match_parent"
-       android:text="No Deliverables. You better vacate ASAP" />
+       android:text="No Deliverables. You better vacate ASAP !!!" 
+       android:gravity="center"
+       android:textSize="19sp"
+       />
        
 
 </LinearLayout>
