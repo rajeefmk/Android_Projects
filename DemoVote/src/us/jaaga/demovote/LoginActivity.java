@@ -41,6 +41,8 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_activity);
 		
+		getActionBar().setTitle(R.string.login_page);
+		
 		mSharedPreferences = getSharedPreferences("demo_vote", MODE_PRIVATE);
 		String test_token = mSharedPreferences.getString("token", null);
 		if(test_token != null){

@@ -28,6 +28,8 @@ public class StudentListActivity extends ListActivity {
 		
 		setContentView(R.layout.students_list);
 		
+		getActionBar().setTitle(R.string.student_list_page);
+		
 		SharedPreferences mSharedPreferences = getSharedPreferences("demo_vote", MODE_PRIVATE);
 		String test_token = mSharedPreferences.getString("token", null);
 		Log.i(TAG, "Token is loaded");
@@ -57,10 +59,12 @@ public class StudentListActivity extends ListActivity {
 		}else{
 		
 			String user_id = mStudentListData.getId();
+			String name = mStudentListData.getName();
 			Log.i(TAG, "unique user id obtained from above objec & stored in local variable");
 			
 			mIntent = new Intent(StudentListActivity.this, DeliverableListActivity.class);
 			mIntent.putExtra("user_id", user_id);
+			mIntent.putExtra("name", name);
 			Log.i(TAG, "unique user-id is added to intent");
 			
 			mIntent.putExtra("Network_key", true);
