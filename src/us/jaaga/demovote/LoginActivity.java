@@ -41,16 +41,20 @@ public class LoginActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login_activity);
 		
-		getActionBar().setTitle(R.string.login_page);
-		
 		mSharedPreferences = getSharedPreferences("demo_vote", MODE_PRIVATE);
 		String test_token = mSharedPreferences.getString("token", null);
 		if(test_token != null){
 			Log.i(TAG, "Skipping signIn since token is present");
-			runIntent();
+			Intent mIntent = new Intent(LoginActivity.this, StudentListActivity.class);
+		    startActivity(mIntent);
 			finish();
-			
 		}
+		
+		getActionBar().setTitle(R.string.login_page);
+		
+		
+			
+		
 		
 		mSignInButton = (SignInButton) findViewById(R.id.btn_sign_in);
 		

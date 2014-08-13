@@ -43,9 +43,9 @@ public class DeliverableListAdapter extends ArrayAdapter<ProjectListData>  {
 		delivName.setText(delivTitle);
 		
 		//Voting Status of Deliverable
-		boolean delivStatus = currentProject.getDeliverableStatus();
+		boolean votingStatus = currentProject.isVotingStatus();
 		TextView delivStatusView = (TextView) row.findViewById(R.id.delivStatus);
-		if(delivStatus != false){
+		if(votingStatus != false){
 			delivStatusView.setText("Voting Status: Open");
 		}
 		else{
