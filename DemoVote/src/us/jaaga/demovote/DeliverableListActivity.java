@@ -24,6 +24,7 @@ public class DeliverableListActivity extends ListActivity {
 	DeliverableListAdapter mDeliverableListAdapter;
 	String user_id,name;
 	Intent mIntent;
+	boolean votingStatus;
 	
 	private static final String TAG = "DeliverableListActivity";
 	
@@ -68,17 +69,22 @@ public class DeliverableListActivity extends ListActivity {
 		
 		ProjectListData mProjectListData = (ProjectListData) getListAdapter().getItem(position);
 		
+		String projectId = mProjectListData.getDeliverableId();
 		String projectName = mProjectListData.getDeliverableTitle();
 		String projectDescription = mProjectListData.getDeliverablesDescription();
+		votingStatus = mProjectListData.isVotingStatus();
 		int upVoteCount = mProjectListData.getTotalUpVote();
 		int downVoteCount = mProjectListData.getTotalDownVote();
 		
 		
 		Intent mIntent = new Intent(DeliverableListActivity.this, ProjectDetail.class);
+		
+		mIntent.putExtra("id", projectId);
 		mIntent.putExtra("name", projectName);
 		mIntent.putExtra("description", projectDescription);
 		mIntent.putExtra("upVoteCount", upVoteCount);
 		mIntent.putExtra("downVoteCount", downVoteCount);
+		mIntent.putExtra("votingStatus", votingStatus);
 		
 		startActivity(mIntent);
 		
