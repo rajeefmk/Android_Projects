@@ -28,6 +28,9 @@ public class ProjectDetail extends Activity{
 	Button upVote,downVote;
 	TextView currentVotedetail;
 	boolean votingStatus;
+	String selectedVote;
+	TextView delivDownVoteCount;
+	TextView delivUpVoteCount;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +52,8 @@ public class ProjectDetail extends Activity{
 		//TextViews are inflated
 		TextView delivName = (TextView) findViewById(R.id.delivName);
 		TextView delivDescription = (TextView) findViewById(R.id.delivDescription);
-		TextView delivUpVoteCount = (TextView) findViewById(R.id.upvote);
-		TextView delivDownVoteCount = (TextView) findViewById(R.id.downvote);
+		delivUpVoteCount = (TextView) findViewById(R.id.upvote);
+		delivDownVoteCount = (TextView) findViewById(R.id.downvote);
 		currentVotedetail = (TextView) findViewById(R.id.currentVoteDetail);
 		
 		//Obtaining data from previous activity
@@ -102,6 +105,7 @@ public class ProjectDetail extends Activity{
 				@Override
 				public void onClick(View v) {
 					
+					selectedVote = "upvote";
 					mAsyncVote.execute("true");
 				}
 			});
@@ -110,6 +114,7 @@ public class ProjectDetail extends Activity{
 				
 				@Override
 				public void onClick(View v) {
+					selectedVote = "downvote";
 					mAsyncVote.execute("false");
 					
 				}
@@ -127,6 +132,15 @@ public class ProjectDetail extends Activity{
 			upVote.setVisibility(View.INVISIBLE);
 			downVote.setVisibility(View.INVISIBLE);
 			currentVotedetail.setText("Yay !! Thanks for voting");
+			if(selectedVote == "upvote"){
+				
+			delivUpVoteCount.setText("Total Upvotes: " + (mIntent.getIntExtra("upVoteCount", upVoteCount)+1) );
+			}
+			
+			else if(selectedVote == "downvote"){
+				
+			delivDownVoteCount.setText("Total DownVotes: " + (mIntent.getIntExtra("downVoteCount", downVoteCount)+1) );
+			}
 		}else{
 			
 			Toast.makeText(ProjectDetail.this, "Please Try Again", Toast.LENGTH_LONG).show();

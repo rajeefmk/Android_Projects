@@ -15,7 +15,7 @@ public class AsyncVote extends AsyncTask<String, Void, Integer> {
 	String mToken;
 	ProgressDialog pDialog;
 	JSONObject mJSONObject;
-	private static String url = "http://192.168.3.103:3000/api/v1/votes";
+	private static String url = "https://jaagademovote.herokuapp.com/api/v1/votes";
 	private static final String TAG = "AsyncVote";
 	
 	public AsyncVote(ProjectDetail activity,String Id, String token){
