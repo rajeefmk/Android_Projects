@@ -34,8 +34,14 @@ public class ServiceHandler {
 	private static final String TAG = "ServiceHandler";
 	public ServiceHandler(String token) {
 		
-		mToken = token;
-		Log.i(TAG, "token is added to mToken");
+		if(token!=null){
+			mToken = token;
+			Log.i(TAG, "token is added to mToken" + mToken);
+		}else{
+			
+			Log.i(TAG, "token empty");
+		}
+		
 	}
 	
 	public ServiceHandler() {
