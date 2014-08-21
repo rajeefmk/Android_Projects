@@ -24,7 +24,7 @@ public class LoginActivity extends Activity {
 	
 	static final int REQUEST_CODE_PICK_ACCOUNT = 1000;
 	static final int REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR = 1001;
-	private static final String DEBUG_TAG = "NetworkStatusExample";
+	private static final String DEBUG_TAG = "NetworkStatus";
 	private static final String TAG = "LoginActivity";
 	
 	SignInButton mSignInButton;
