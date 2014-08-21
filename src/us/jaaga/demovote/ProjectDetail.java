@@ -8,11 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class ProjectDetail extends Activity{
 
@@ -25,9 +21,9 @@ public class ProjectDetail extends Activity{
 	
 	JSONObject mJSONObject;
 	AsyncVote mAsyncVote;
-	Button upVote,downVote;
+	//Button upVote,downVote;
 	TextView currentVotedetail;
-	boolean votingStatus;
+	boolean votingStatus, delivStatus;
 	String selectedVote;
 	TextView delivDownVoteCount;
 	TextView delivUpVoteCount;
@@ -52,6 +48,7 @@ public class ProjectDetail extends Activity{
 		//TextViews are inflated
 		TextView delivName = (TextView) findViewById(R.id.delivName);
 		TextView delivDescription = (TextView) findViewById(R.id.delivDescription);
+		TextView delivStatusText = (TextView) findViewById(R.id.delivStatus);
 		delivUpVoteCount = (TextView) findViewById(R.id.upvote);
 		delivDownVoteCount = (TextView) findViewById(R.id.downvote);
 		currentVotedetail = (TextView) findViewById(R.id.currentVoteDetail);
@@ -69,9 +66,18 @@ public class ProjectDetail extends Activity{
 		getActionBar().setTitle(mIntent.getStringExtra("name"));
 		
 		votingStatus = mIntent.getExtras().getBoolean("votingStatus");
+		delivStatus = mIntent.getExtras().getBoolean("delivStatus");
+		if(delivStatus == true){
+			
+			delivStatusText.setText("Status: Delivered");
+		}else{
+			
+			delivStatusText.setText("Status: Not Delivered");
+		}
 		
 		
-		//Inflating Button
+		
+		/*//Inflating Button
 		upVote = (Button) findViewById(R.id.upvoteButton);
 		downVote = (Button) findViewById(R.id.downvoteButton);
 		
@@ -82,19 +88,19 @@ public class ProjectDetail extends Activity{
 		}else{
 			
 			delivId = mIntent.getStringExtra("id");
-			/*//Inflating Button Elements
+			//Inflating Button Elements
 			upVote = (Button) findViewById(R.id.upvoteButton);
-			downVote = (Button) findViewById(R.id.downvoteButton);*/
+			downVote = (Button) findViewById(R.id.downvoteButton);
 			
 			//mJSONObject = new JSONObject();
-			/*try{
+			try{
 				//mJSONObject.put("vote",true);
 				mJSONObject.put("_id", delivId);
 				
 			}catch(JSONException e){
 				
 				e.printStackTrace();
-			}*/
+			}
 			
 			mAsyncVote = new AsyncVote(this, delivId, test_token);
 			Log.i(TAG, "AsyncVote constructor is passed token");
@@ -121,11 +127,11 @@ public class ProjectDetail extends Activity{
 			});
 			
 		}
-		
+		*/
 		
 	}
 	
-	public void setButtonChange(String value){
+	/*public void setButtonChange(String value){
 		
 		if(value == "hide"){
 			
@@ -147,5 +153,5 @@ public class ProjectDetail extends Activity{
 			finish();
 		}
 			
-	}
+	}*/
 }

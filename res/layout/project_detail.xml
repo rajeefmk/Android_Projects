@@ -55,6 +55,17 @@
 		android:typeface="serif"
 		>
         
+	    <TextView
+         android:id="@+id/delivStatus"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="@string/deliv_status"
+         android:textColor="#181717"
+         android:textSize="19sp"
+         android:textStyle="bold"
+         android:typeface="serif"
+         />
+        
 		<TextView
          android:id="@+id/upvote"
          android:layout_width="fill_parent"
@@ -98,9 +109,52 @@
 	     android:textSize="19sp"
 	     android:layout_gravity="center"
 	     android:typeface="serif"
+	     android:textStyle="bold"
 	     />
+		
+		<TextView
+         android:id="@+id/coming_soon"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="1.Voting feature"
+         android:textColor="#181717"
+         android:textSize="15sp"
+         android:typeface="serif"
+         android:paddingTop="5dp"
+         
+         />
+		<TextView
+         android:id="@+id/image_profile"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="2.Profile Picture in Student List"
+         android:textColor="#181717"
+         android:textSize="15sp"
+         android:typeface="serif"
+         android:paddingTop="5dp"
+         />
+		<TextView
+         android:id="@+id/fasterLoading"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="3.Faster Loading"
+         android:textColor="#181717"
+         android:textSize="15sp"
+         android:typeface="serif"
+         android:paddingTop="5dp"
+         />
+		<TextView
+         android:id="@+id/dataOffline"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:text="4.Data available offline"
+         android:textColor="#181717"
+         android:textSize="15sp"
+         android:typeface="serif"
+         android:paddingTop="5dp"
+         />
 	
- 		<LinearLayout
+ 		<!-- <LinearLayout
          android:layout_width="wrap_content"
          android:layout_height="wrap_content"
          android:layout_gravity="center"
@@ -127,7 +181,7 @@
          	 android:layout_weight="1"
          	 />
             
- 		</LinearLayout>
+ 		</LinearLayout> -->
 	</LinearLayout>
 
 

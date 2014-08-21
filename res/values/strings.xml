@@ -24,9 +24,10 @@
 	<string name="project_number">1.</string>
 	<string name="upvote_data">Upvotes: 6</string>
 	<string name="downvote_data">Downvotes: 3</string>
-	<string name="current_vote">Like it or Nat ? </string>
+	<string name="current_vote">Coming Soon.. </string>
 	<string name="upvote_button">Upvote</string>
 	<string name="downvote_button">Downvote</string>
+	<string name="deliv_status">Status: Not Delivered</string>
 	
 	
 	<!-- <string name="project_list">Project Lists</string> -->

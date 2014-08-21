@@ -83,7 +83,7 @@ public class AsyncVote extends AsyncTask<String, Void, Integer> {
 		return voteReponse;
 	}
 	
-	@Override
+	/*@Override
 	protected void onPostExecute(Integer result) {
 		super.onPostExecute(result);
 		if (pDialog.isShowing())
@@ -99,7 +99,7 @@ public class AsyncVote extends AsyncTask<String, Void, Integer> {
 		}
 		
 		
-	}
+	}*/
 	
 
 }
