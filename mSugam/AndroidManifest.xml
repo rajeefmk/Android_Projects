@@ -19,12 +19,21 @@
         <activity
             android:name="us.jaaga.msugam.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
+           
+        </activity>
+        <activity 
+            android:name="us.jaaga.msugam.SplashScreen"
+            android:label="@string/app_name"
+            android:noHistory="true"
+            >
+             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+            
         </activity>
+        
     </application>
 
 </manifest>
