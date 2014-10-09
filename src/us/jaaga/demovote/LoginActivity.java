@@ -17,9 +17,6 @@ import android.view.View.OnClickListener;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.google.android.gms.common.AccountPicker;
-import com.google.android.gms.common.SignInButton;
-
 public class LoginActivity extends Activity {
 	
 	static final int REQUEST_CODE_PICK_ACCOUNT = 1000;
