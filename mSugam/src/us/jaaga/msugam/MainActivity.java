@@ -255,8 +255,7 @@ public class MainActivity extends Activity {
 	        			fVATVal + " " + fOtherVal + " " + formattedCommodityValue + " " + " " + fPlace;
 	        
 	        
-		        //Number = "09212357123"; 
-		        Number = "9663845414";
+		        Number = "09212357123"; 
 
 				
 				SmsManager sms = SmsManager.getDefault();

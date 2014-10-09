@@ -7,11 +7,6 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.google.android.gms.auth.GoogleAuthException;
-import com.google.android.gms.auth.GoogleAuthUtil;
-import com.google.android.gms.auth.GooglePlayServicesAvailabilityException;
-import com.google.android.gms.auth.UserRecoverableAuthException;
-
 public class AsyncToken extends AsyncTask<Void, Void, String>{
 	
 	LoginActivity mActivity;
@@ -138,35 +133,6 @@ public class AsyncToken extends AsyncTask<Void, Void, String>{
 			e.printStackTrace();
 		}
 	}
-	
-	/*public void handleException(final Exception e) {
-	    // Because this call comes from the AsyncTask, we must ensure that the following
-	    // code instead executes on the UI thread.
-	    
-		runOnUiThread(new Runnable() {
-	        @Override
-	        public void run() {
-	            if (e instanceof GooglePlayServicesAvailabilityException) {
-	                // The Google Play services APK is old, disabled, or not present.
-	                // Show a dialog created by Google Play services that allows
-	                // the user to update the APK
-	                int statusCode = ((GooglePlayServicesAvailabilityException)e)
-	                        .getConnectionStatusCode();
-	                Dialog dialog = GooglePlayServicesUtil.getErrorDialog(statusCode,
-	                        mActivity,
-	                        REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR);
-	                dialog.show();
-	            } else if (e instanceof UserRecoverableAuthException) {
-	                // Unable to authenticate, such as when the user has not yet granted
-	                // the app access to the account, but the user can fix this.
-	                // Forward the user to an activity in Google Play services.
-	                Intent intent = ((UserRecoverableAuthException)e).getIntent();
-	                mActivity.startActivityForResult(intent,
-	                        REQUEST_CODE_RECOVER_FROM_PLAY_SERVICES_ERROR);
-	            }
-	        }
-	    });
-	}
-*/
+
 	
 }

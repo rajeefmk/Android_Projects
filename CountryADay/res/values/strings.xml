@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Country A Day</string>
+    <string name="splash_screen">Country A Day</string>
+    <string name="action_settings">Settings</string>
+    <string name="lbl_login">Login</string>
+    <string name="lbl_enter_pwd">Password</string>
+    <string name="lbl_pwd">Password</string>
+    <string name="lbl_enter_username">Username</string>
+    <string name="lbl_username">Username</string>
+    <string name="btn_login">Sign In</string>
+    <string name="Login">Login</string>
+    
+
+</resources>

@@ -1,0 +1,49 @@
+package us.jaaga.demovote.helper;
+
+import java.util.ArrayList;
+
+import us.jaaga.demovote.DeliverableList;
+import us.jaaga.demovote.models.ProjectListData;
+import android.app.ProgressDialog;
+import android.os.AsyncTask;
+
+public class AsyncDeliv extends AsyncTask<Void, Void, ArrayList<ProjectListData>> {
+
+	private static String url = "https://jaagademovote.herokuapp.com/deliverables?user=";
+	DeliverableList mDeliverableList;
+	ProgressDialog pDialog;
+	
+	private static String user_id;
+	
+	public AsyncDeliv(DeliverableList activity, String userid){
+		
+		mDeliverableList = activity;
+		user_id = userid;
+		
+	}
+	
+	@Override
+	protected void onPreExecute() {
+		super.onPreExecute();
+		pDialog = new ProgressDialog(mDeliverableList);
+		pDialog.setMessage("Please wait...");
+		pDialog.setCancelable(false);
+		pDialog.show();
+	}
+	
+	@Override
+	protected ArrayList<ProjectListData> doInBackground(Void... params) {
+		
+		String final_url = (url+user_id);
+		ServiceHandler sh = new ServiceHandler();
+		String jsonData = sh.makeServiceCall(final_url, ServiceHandler.GET);
+		
+		return null;
+	}
+	
+	@Override
+	protected void onPostExecute(ArrayList<ProjectListData> result) {
+		super.onPostExecute(result);
+	}
+
+}

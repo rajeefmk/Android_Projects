@@ -30,8 +30,9 @@ public class ServiceHandler {
 	//static String REQUEST_CODE_401;
 	static String REQUEST_CODE_403;
 	String mToken;
-	
+	JSONObject mJson;
 	private static final String TAG = "ServiceHandler";
+	
 	public ServiceHandler(String token) {
 		
 		if(token!=null){

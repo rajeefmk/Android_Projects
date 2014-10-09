@@ -1,0 +1,12 @@
+package us.jaaga.demovote;
+
+import android.app.Activity;
+
+ArrayList<ProjectListData> projectdata = new ArrayList<ProjectListData>();
+
+public class DeliverableList extends Activity {
+
+	
+	projectdata = (ArrayList<ProjectListData>) getIntent().getExtras().getSerializable("myProject");
+	
+}
