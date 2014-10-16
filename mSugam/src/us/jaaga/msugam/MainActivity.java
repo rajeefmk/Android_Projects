@@ -1,5 +1,6 @@
 package us.jaaga.msugam;
 
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -13,13 +14,14 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.andreabaccega.widget.FormEditText;
+
 public class MainActivity extends Activity {
 	
-	EditText mOtherPartyTin ,mInvoiceNo ,mTaxableVal ,mVATVal ,mOtherVal ,mPlace;
+	FormEditText mOtherPartyTin ,mInvoiceNo ,mTaxableVal ,mVATVal ,mOtherVal ,mPlace;
 	Spinner mSpinnerType, mSpinnerCategory;
 	String fOtherPartyTin ,fInvoiceNo ,fTaxableVal ,fVATVal ,fOtherVal ,fCommCode ,fPlace;
 	String Message ,Number, fsptype,fspcateg, finalSpinnerType, finalSpinnerCategory ;
@@ -142,13 +144,13 @@ public class MainActivity extends Activity {
         
         //Layout Element Inflators
         
-        mOtherPartyTin = (EditText) findViewById(R.id.OtherPartyTin);
-        mInvoiceNo = (EditText) findViewById(R.id.InvoiceNo);
-        mTaxableVal = (EditText) findViewById(R.id.TaxableVal);
-        mVATVal = (EditText) findViewById(R.id.VATVal);
-        mOtherVal = (EditText) findViewById(R.id.OtherVal);
+        mOtherPartyTin = (FormEditText) findViewById(R.id.OtherPartyTin);
+        mInvoiceNo = (FormEditText) findViewById(R.id.InvoiceNo);
+        mTaxableVal = (FormEditText) findViewById(R.id.TaxableVal);
+        mVATVal = (FormEditText) findViewById(R.id.VATVal);
+        mOtherVal = (FormEditText) findViewById(R.id.OtherVal);
         //mCommCode = (EditText) findViewById(R.id.CommCode);
-        mPlace = (EditText) findViewById(R.id.Place);
+        mPlace = (FormEditText) findViewById(R.id.Place);
         
         //Inflating the Commodity code AutoCompleteTextView
         
@@ -255,7 +257,8 @@ public class MainActivity extends Activity {
 	        			fVATVal + " " + fOtherVal + " " + formattedCommodityValue + " " + " " + fPlace;
 	        
 	        
-		        Number = "09212357123"; 
+		        //Number = "09212357123"; 
+		        Number = "09663845414";
 
 				
 				SmsManager sms = SmsManager.getDefault();

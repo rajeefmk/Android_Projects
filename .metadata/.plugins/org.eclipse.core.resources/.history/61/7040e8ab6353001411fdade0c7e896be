@@ -1,0 +1,177 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:msugam="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="us.jaaga.msugam.MainActivity$PlaceholderFragment"
+    android:layout_gravity="center_horizontal"
+	android:background="#FF8040"     >
+   
+        <!-- android:showDividers="middle" -->
+    
+     <ScrollView 
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
+     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+          >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Type of Transaction"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            />
+            
+		<Spinner 
+		    android:id="@+id/SpinnerType"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:entries="@array/type_list"
+		    android:prompt="@string/type"
+		    android:paddingBottom="10sp"
+		    />
+		
+		<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Category of Transaction"
+            android:textStyle="bold"
+            android:textSize="20sp"/>
+		
+		<Spinner
+		    android:id="@+id/SpinnerCategory"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:entries="@array/category_list"
+		    android:prompt="@string/category"
+		    android:paddingBottom="5sp"
+		    
+		  />
+		
+		<TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Other Details:"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingBottom="5sp"
+            />
+		<us.jaaga.widget.FormEditText
+		    
+		    android:id="@+id/OtherPartyTin"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="textCapCharacters"
+		    android:hint="@string/other_party_tin"
+		    android:textColorHint="#2C3539"
+		    android:padding="10dp"
+			android:textColor="#ffffff"
+		    msugam:testType="alpha" />
+		    
+		    />
+
+		<!-- <EditText 
+		    android:id="@+id/OtherPartyTin"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="textCapCharacters"
+		    android:hint="@string/other_party_tin"
+		    android:textColorHint="#2C3539"
+		    android:padding="10dp"
+			android:textColor="#ffffff"
+					    /> -->
+		
+		<EditText 
+		    android:id="@+id/InvoiceNo"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="textCapCharacters"
+		    android:hint="@string/invoice_number"
+		    android:textColorHint="#2C3539"
+		    android:padding="10dp"
+		    android:textColor="#ffffff"
+		    />
+	
+		<EditText 
+		    android:id="@+id/TaxableVal"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="numberDecimal"
+		    android:hint="@string/taxable_value"
+		    android:textColorHint="#2C3539"
+		    android:padding="10dp"
+		    android:textColor="#ffffff"
+		    
+		    />
+		
+		<EditText 
+		    android:id="@+id/VATVal"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="numberDecimal"
+		    android:hint="@string/VAT_value"
+		    android:textColorHint="#2C3539"
+		    android:padding="10dp"
+		    android:textColor="#ffffff"
+		    
+		    />
+		
+		<EditText 
+		    android:id="@+id/OtherVal"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:inputType="numberDecimal"
+		    android:hint="@string/other_value"
+		    android:textColorHint="#2C3539"
+		    android:padding="10dp"
+		    android:textColor="#ffffff"
+		    />
+		
+		<AutoCompleteTextView 
+		    android:id="@+id/CommCode"
+		    android:layout_height="wrap_content"
+		    android:layout_width="match_parent"
+		    android:hint="@string/commodity_code"
+		    android:textColorHint="#2C3539"
+		    android:padding="10dp"
+		    android:textColor="#ffffff"
+		    />
+			
+	
+		<EditText 
+		    android:id="@+id/Place"
+		    android:layout_height="wrap_content"
+		    android:layout_width="fill_parent"
+		    android:inputType="textCapCharacters"
+		    android:hint="@string/other_party_location"
+		    android:textColorHint="#2C3539"
+		    android:padding="10dp"
+		    android:textColor="#ffffff"
+		    />
+		
+		<Button 
+		    android:id="@+id/submitButton"
+		    android:layout_height="wrap_content"
+		    android:layout_width="fill_parent"
+		    android:text="@string/submit_button" 
+		    android:layout_gravity="bottom"
+		    style="@style/DefaultButtonText"
+            android:background="@drawable/button_default_bg"
+            android:textColor="#2C3539"
+            
+		    />
+		</LinearLayout>
+	</ScrollView>
+	
+</LinearLayout>

@@ -2,9 +2,9 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
 		<item value="312" key="DIALOG_WIDTH"/>
-		<item value="279" key="DIALOG_Y_ORIGIN"/>
-		<item value="125" key="DIALOG_X_ORIGIN"/>
-		<item value="465" key="DIALOG_HEIGHT"/>
+		<item value="182" key="DIALOG_Y_ORIGIN"/>
+		<item value="633" key="DIALOG_X_ORIGIN"/>
+		<item value="493" key="DIALOG_HEIGHT"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
@@ -13,16 +13,16 @@
 		<item value="false" key="isRegEx"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="Toast" key="selection"/>
+		<item value="customMarker" key="selection"/>
 		<list key="findhistory">
+			<item value="customMarker"/>
+			<item value="num_txt"/>
+			<item value="mFragments"/>
+			<item value="titles"/>
 			<item value="toast"/>
 			<item value="login"/>
 			<item value="color"/>
 			<item value="main array is"/>
-			<item value="main array"/>
-			<item value="studentData"/>
-			<item value="delivData"/>
-			<item value="please"/>
 		</list>
 		<list key="replacehistory">
 		</list>
