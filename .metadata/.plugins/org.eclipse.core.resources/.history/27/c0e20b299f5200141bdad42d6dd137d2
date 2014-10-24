@@ -1,0 +1,91 @@
+package us.jaaga.samaltmanblog;
+
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+public class MyWebView extends fragment {
+	 
+	//private final String paulGraham = "http://paulgraham.com/articles.html";
+	//private final String samAltman = "http://blog.samaltman.com";
+	
+	private WebView mWebView;
+	private WebSettings mWebSettings;
+	
+	@Override
+	public void onActivityCreated(Bundle savedInstanceState) {
+		super.onActivityCreated(savedInstanceState);
+		
+		//Getting the url to open
+		Bundle args = getArguments();
+		String url = args.getString("url");
+		
+		//Setting up the WebView
+		mWebView = (WebView) getView().findViewById(R.id.webView);
+		mWebView.setWebViewClient(new WebViewClient());
+		mWebSettings = mWebView.getSettings();
+		mWebSettings.setJavaScriptEnabled(true);
+		
+		
+		//Extra Features
+		//TODO Need to check n replace the below features
+		mWebSettings.setLoadsImagesAutomatically(true);
+		mWebView.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+		
+		//Cache Storage
+		mWebSettings.setAppCachePath(getActivity().getCacheDir().getAbsolutePath());
+		
+		//mWebSettings.setAppCachePath(getApplicationContext().getCacheDir().getAbsolutePath());
+		mWebSettings.setAppCacheEnabled(true);
+		mWebSettings.setAllowFileAccess(true);
+		mWebSettings.setCacheMode(WebSettings.LOAD_DEFAULT);
+		
+		//TODO Add these features for cacheing
+				//mWebSettings.setAppCachePath(getAp)
+				//mWebSettings.setAppCachePath(getApplicationContext().getCacheDir().getAbsolutePath());
+		
+		
+		
+		if (!isNetworkAvailable()){
+			mWebSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+			
+		}
+		 
+		//Loading the url
+		mWebView.loadUrl(url);
+	}
+	
+	private boolean isNetworkAvailable() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container,
+			Bundle savedInstanceState) {
+		
+		View view = inflater.inflate(R.layout.web_view,container,false);
+		return view;
+	}
+	
+	//TODO Replace .setWebViewClient arguments with below content
+	
+	/*private class MyBrowser extends WebViewClient {
+	 * 
+	 * @Override
+	 * public boolean shouldOVerrideUrlLoading(WebView
+	 *  	view, String url) {
+	 * 
+	 * view.loadUrl(url);
+	 * return true;
+	 * }
+	 * }
+	 */
+	
+
+}

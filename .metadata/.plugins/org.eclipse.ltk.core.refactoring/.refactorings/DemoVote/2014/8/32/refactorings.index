@@ -1,0 +1,41 @@
+1407165239344	Change Layout
+1407216649588	Rename type 'MainActivity'
+1407216954667	Rename resource 'activity_main.xml'
+1407218562401	Rename resource 'row_tweet.xml'
+1407218590110	Copy file
+1407218735049	Rename resource 'activity_tweet_detail.xml'
+1407218832907	Copy file
+1407241269431	Delete element
+1407241524172	Delete element
+1407242069045	Rename type 'ListofStudents'
+1407247575086	Rename local variable 'rootView'
+1407247953698	Move compilation units
+1407249364896	Move file
+1407249387314	Move file
+1407249590667	Move file
+1407249599426	Move file
+1407249684791	Delete element
+1407315213079	Rename type 'TokenPOJO'
+1407432326217	Delete element
+1407433448087	Copy compilation unit
+1407435716876	Rename type 'StudenListData'
+1407436184982	Rename type 'StudentList'
+1407438496861	Delete element
+1407468066276	Delete element
+1407468111849	Copy file
+1407468136849	Copy file
+1407469030995	Delete element
+1407469065932	Copy compilation unit
+1407469328791	Copy compilation unit
+1407473109803	Delete element
+1407473131184	Copy compilation unit
+1407473207197	Delete element
+1407473243090	Copy compilation unit
+1407473341134	Delete elements
+1407473370037	Copy file
+1407473379285	Copy file
+1407525103706	Rename type 'DeliverableList'
+1407526657577	Rename field 'deliverableName'
+1407526717343	Rename field 'TAG_VOTINGOPEN'
+1407526823103	Rename field 'TAG_TOTAL_VOTES'
+1407528358595	Rename field 'noDeliverable'

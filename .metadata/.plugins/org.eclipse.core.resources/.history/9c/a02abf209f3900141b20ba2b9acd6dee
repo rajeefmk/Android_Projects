@@ -1,0 +1,20 @@
+package us.jaaga.msugam;
+
+import android.content.Context;
+import android.widget.AutoCompleteTextView;
+
+public class CustomAutoCompleteTextView extends AutoCompleteTextView{
+
+	public CustomAutoCompleteTextView(Context context) {
+		super(context);
+		
+		
+	}
+
+	@Override
+	protected void replaceText(double finalCommodityValue) {
+		super.replaceText(finalCommodityValue);
+		
+	}
+
+}

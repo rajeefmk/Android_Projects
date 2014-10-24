@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">mSugam</string>
+    <string name="action_settings">Settings</string>
+    <string name="type">Choose Type of Transaction</string>
+    <string name="category">Choose Category of Transaction</string>
+    <string name="submit_button">Submit</string>
+    
+    <!-- Field Strings --> 
+    
+    <string name="other_party_tin">Other Party Tin</string>
+    <string name="invoice_number">Invoice No</string>
+    <string name="taxable_value">Taxable Value</string>
+    <string name="VAT_value">VAT Value</string>
+    <string name="other_value">Other Value</string>
+    <string name="commodity_code">Commodity Code</string>
+    <string name="other_party_location">Other Party Location</string>
+    
+    <string-array name="type_list">
+        <item>Choose Type of Transaction</item>
+        <item>WS-Within State</item>
+        <item>IS-Interstate State</item>
+        <item>EX-Export</item>
+        <item>IM-Import</item>
+    </string-array>
+    
+    <string-array name="category_list">
+        <item>Choose Category of Transaction</item>
+        <item>SAL-After Sale</item>
+        <item>PUR-After Purchase</item>
+        <item>THP-To His Principal</item>
+        <item>SGS-To Shop/Go down/Storage</item>
+        <item>JRL-Job work/Return/Line Sales</item>
+        <item>CSD-Cons. Sale(Despatch)</item>
+        <item>CSR-Cons. Sale(Receipt)</item>
+        <item>STD-Stock Transfer(Despatch)</item>
+        <item>STR-Stock Transfer(Receipt)</item>
+        <item>OTH-Others</item>
+    </string-array>
+    
+    <style name="DefaultButtonText">
+       <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#979797</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:shadowColor">#f9f9f9</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">1</item>
+        <item name="android:shadowRadius">1</item>
+    </style>
+    
+</resources>

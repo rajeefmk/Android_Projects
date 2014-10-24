@@ -1,0 +1,12 @@
+package us.jaaga.demovote;
+
+import java.util.ArrayList;
+
+import us.jaaga.demovote.models.ProjectListData;
+import android.app.Activity;
+
+public class DeliverableList extends Activity {
+
+	ArrayList<ProjectListData> projectdata = new ArrayList<ProjectListData>();
+	
+}
